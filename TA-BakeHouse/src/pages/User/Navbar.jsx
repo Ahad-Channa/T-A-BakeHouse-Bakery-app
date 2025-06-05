@@ -1,22 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+function Navbar() {
   return (
-    <nav className="bg-yellow-100 shadow-md">
-      <div className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-yellow-700">
-          🧁 T.A. Bakehouse
+    <nav className="bg-yellow-500 text-white px-6 py-4 flex justify-between items-center shadow-md">
+      <h1 className="text-3xl font-bold tracking-wide">🍰 Sweet Bites</h1>
+      
+      <div className="flex gap-4">
+        <Link 
+          to="/" 
+          className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
+        >
+          Home
         </Link>
-        <div className="space-x-6 text-lg hidden md:flex">
-          <Link to="/" className="text-gray-700 hover:text-yellow-600">Home</Link>
-          <Link to="/products" className="text-gray-700 hover:text-yellow-600">Products</Link>
-          <Link to="/cart" className="text-gray-700 hover:text-yellow-600">Cart</Link>
-          <Link to="/login" className="text-gray-700 hover:text-yellow-600">Login</Link>
-        </div>
+        <Link 
+          to="/products" 
+          className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
+        >
+          Products
+        </Link>
+        <Link 
+          to="/cart" 
+          className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
+        >
+          Cart
+        </Link>
+        <Link 
+          to="/login" 
+          className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
+        >
+          Login
+        </Link>
+        
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
