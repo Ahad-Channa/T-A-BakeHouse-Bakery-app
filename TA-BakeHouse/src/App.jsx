@@ -4,17 +4,20 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/User/Layout";
 import Home from "./pages/User/Home";
 import Login from "./pages/User/Login";
-import Products from "./pages/User/Products";
+//import Products from "./pages/User/Products";
 import Cart from "./pages/User/Cart";
 import Register from "./pages/User/Register";
 import Dashboards from "./pages/Admin/Dashboards";
 import Incoming_orders from "./pages/Admin/Incoming_orders";
 import AdminCategories from "./pages/Admin/AdminCategories";
 import  AddCategory  from "./pages/Admin/AddCategory";
-import AdminProducts from "./pages/Admin/AdminProducts";
+//import AdminProducts from "./pages/Admin/AdminProducts";
 import Feedbacks from "./pages/Admin/Feedbacks";
 import Prev_orders from "./pages/Admin/Prev_orders";
-import OrderDetails from "./pages/Admin/OrderDetails"
+import OrderDetails from "./pages/Admin/OrderDetails";
+import Products from "./pages/components/Products";
+import AdminProducts from "./pages/Admin/adminproduct";
+import ClientProducts from "./pages/User/cliendproduct";
 
 
 
@@ -37,6 +40,7 @@ const router = createBrowserRouter([
       { path: "/previous-orders", element: <Prev_orders /> },
       { path: "/add-category", element: <AddCategory /> },
       { path: "/order-details/:orderId", element: <OrderDetails /> },
+      { path: "/client-products", element: <ClientProducts/>}
     ],
   },
 ]);
