@@ -18,6 +18,7 @@ import OrderDetails from "./pages/Admin/OrderDetails";
 import Products from "./pages/components/Products";
 import AdminProducts from "./pages/Admin/adminproduct";
 import ClientProducts from "./pages/User/cliendproduct";
+import  Addproducts  from "./pages/Admin/Addproducts";
 
 
 
@@ -40,7 +41,8 @@ const router = createBrowserRouter([
       { path: "/previous-orders", element: <Prev_orders /> },
       { path: "/add-category", element: <AddCategory /> },
       { path: "/order-details/:orderId", element: <OrderDetails /> },
-      { path: "/client-products", element: <ClientProducts/>}
+      { path: "/client-products", element: <ClientProducts/>},
+      { path: "/add-product", element: <Addproducts/>}
     ],
   },
 ]);

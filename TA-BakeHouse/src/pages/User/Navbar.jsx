@@ -14,7 +14,7 @@ function Navbar() {
           Home
         </Link>
         <Link 
-          to="/products" 
+          to="/client-products" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Products
