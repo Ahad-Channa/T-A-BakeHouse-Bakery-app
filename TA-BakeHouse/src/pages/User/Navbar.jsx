@@ -14,16 +14,16 @@ function Navbar() {
           Home
         </Link>
         <Link 
-          to="/client-products" 
+          to="/about" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
-          Products
+          About
         </Link>
         <Link 
-          to="/cart" 
+          to="/Contact-us" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
-          Cart
+          Contact Us
         </Link>
         <Link 
           to="/login" 

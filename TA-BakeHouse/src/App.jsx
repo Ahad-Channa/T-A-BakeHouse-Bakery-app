@@ -7,6 +7,7 @@ import Login from "./pages/User/Login";
 import Cart from "./pages/User/Cart";
 import Register from "./pages/User/Register";
 import ClientProducts from "./pages/User/cliendproduct";
+import ClientCategories from "./pages/User/ClientCategory";
 
 // Admin Layout & Pages
 import AdminLayout from "./pages/Admin/AdminLayout";
@@ -22,7 +23,9 @@ import OrderDetails from "./pages/Admin/OrderDetails";
 
 // Shared Component Page
 import Products from "./pages/components/Products";
-import ClientCategories from "./pages/User/ClientCategory";
+
+import About from "./pages/components/About";
+import Contactus from "./pages/components/Contactus";
 
 const router = createBrowserRouter([
   // 👤 User Routes
@@ -36,7 +39,10 @@ const router = createBrowserRouter([
       { path: "/products", element: <Products /> },
       { path: "/cart", element: <Cart /> },
       { path: "/client-products", element: <ClientProducts /> },
-      { path: "/client-category", element: <ClientCategories/>}
+      { path: "/client-category", element: <ClientCategories/>},
+      {path : "/about" , element : <About/>},
+      {path : "/contact-us", element: <Contactus/>}
+      
     ],
   },
 
