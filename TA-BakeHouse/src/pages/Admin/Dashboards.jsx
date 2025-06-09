@@ -7,19 +7,19 @@ import { useNavigate } from "react-router-dom";
   function handler(kuchbhi) {
     switch (kuchbhi) {
       case "category":
-        nav("/admin-category");
+        nav("/admin/admin-category");
         break;
       case "products":
-        nav("/admin-products");
+        nav("/admin/admin-products");
         break;
       case "feedbacks":
-        nav("/feedbacks");
+        nav("/admin/feedbacks");
         break;
       case "inc_orders":
-        nav("/incoming-orders");
+        nav("/admin/incoming-orders");
         break;
       case "prev_orders":
-        nav("/previous-orders");
+        nav("/admin/previous-orders");
         break;
     }
   }
