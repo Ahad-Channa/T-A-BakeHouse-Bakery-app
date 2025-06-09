@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
     <>
       <div className="flex items-center justify-center h-screen bg-gray-100">
         <div className="w-[800px] min-h-[600px] grid grid-cols-2 gap-4 p-20 bg-slate-200 ">
+          
+          <h2 className="text-3xl text-yellow-600 my-4 font-extrabold col-span-2 text-center">WELCOME ADMIN</h2>
+
            <Link to="/admin/admin-category">
             <button className="bg-rose-400 rounded-lg font-bold hover:bg-rose-500 py-2 px-4 w-full h-[150px]">
               view Categories

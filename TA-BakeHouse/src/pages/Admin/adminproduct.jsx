@@ -1,7 +1,6 @@
-// AdminProducts.jsx
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Products from "../components/Products";
-import { Link } from "react-router-dom";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([
@@ -19,45 +18,51 @@ const AdminProducts = () => {
     },
   ]);
 
+  const navigate = useNavigate();
+
   const handleEdit = (product) => {
-    // navigate to edit page with product info (optional)
-    <Link to=" /edit-product/${product.id}">
-    </Link>
-   
+    navigate(`/admin/edit-product/${product.id}`);
   };
 
   const handleDelete = (id) => {
-    const confirm = window.confirm("Are you sure you want to delete?");
-    if (confirm) {
+    const confirmDelete = window.confirm("Are you sure you want to delete?");
+    if (confirmDelete) {
       setProducts(products.filter((p) => p.id !== id));
     }
   };
 
   return (
-    <div className="p-6 ">
-      <div className="flex justify-between items-center mb-4 mt-50 ">
-        <h2 className="text-2xl font-bold">All Products</h2>
-        <Link to="/admin/add-product">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded">
-            + Add Product
-          </button>
-        </Link>
-      </div>
+    <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center">
+      <div className="w-full max-w-6xl bg-slate-200 rounded-lg p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">All Products</h2>
+          <Link to="/admin/add-product">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+              + Add Product
+            </button>
+          </Link>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.map((prod) => (
-          <Products
-            key={prod.id}
-            product={prod}
-            isAdmin={true}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
-          />
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((prod) => (
+            <Products
+              key={prod.id}
+              product={prod}
+              isAdmin={true}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
+          ))}
+        </div>
+
+        <div className="mt-6">
+          <Link to="/admin/dashboard">
+            <button className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">
+              Back to Dashboard
+            </button>
+          </Link>
+        </div>
       </div>
-      <Link to="/admin/dashboard">
-      <button className="bg-gray-200 py-3 px-4 m-4 rounded-lg" >Back</button>      
-      </Link>
     </div>
   );
 };

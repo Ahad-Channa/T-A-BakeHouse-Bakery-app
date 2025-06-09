@@ -22,6 +22,7 @@ import OrderDetails from "./pages/Admin/OrderDetails";
 
 // Shared Component Page
 import Products from "./pages/components/Products";
+import ClientCategories from "./pages/User/ClientCategory";
 
 const router = createBrowserRouter([
   // 👤 User Routes
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       { path: "/products", element: <Products /> },
       { path: "/cart", element: <Cart /> },
       { path: "/client-products", element: <ClientProducts /> },
+      { path: "/client-category", element: <ClientCategories/>}
     ],
   },
 
@@ -52,6 +54,7 @@ const router = createBrowserRouter([
       { path: "/admin/previous-orders", element: <Prev_orders /> },
       { path: "/admin/feedbacks", element: <Feedbacks /> },
       { path: "/admin/order-details/:orderId", element: <OrderDetails /> },
+      
     ],
   },
 ]);
