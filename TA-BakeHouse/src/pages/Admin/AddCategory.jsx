@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
  const AddCategory = () => {
     const nav=useNavigate()
@@ -20,8 +21,13 @@ import { useNavigate } from "react-router-dom";
             </div>
 
             <div className="flex justyfy-between  ">
+              <Link>
               <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg" onClick={()=>{}}>Add</button>
-              <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg" onClick={()=>nav("/admin-category")}>Cancel</button>
+              </Link>
+              <Link to="admin-category">
+              <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg">Cancel</button>
+              </Link>
+              
             </div>
           </form>
         </div>
