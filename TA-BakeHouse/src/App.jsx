@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <AdminLayout />,
     children: [
-      { path: "/admin/dashboard", element: <Dashboards /> },
+      { path: "/admin", element: <Dashboards /> },
       { path: "/admin/admin-category", element: <AdminCategories /> },
       { path: "/admin/add-category", element: <AddCategory /> },
       { path: "/admin/admin-products", element: <AdminProducts /> },
