@@ -18,7 +18,7 @@ const AdminCategories = () => {
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 m-50">
         <div className="bg-gray-200 flex justify-between items-center p-4 m-4 rounded-lg ">
           <h2 className="text-2xl font-bold">All categories</h2>
-          <button className=" font-bold bg-sky-200  rounded-lg py-2 px-4 hover:bg-sky-300 " onClick={()=>nav("/add-category")}> + add new category</button>
+          <button className=" font-bold bg-sky-200  rounded-lg py-2 px-4 hover:bg-sky-300 " onClick={()=>nav("/admin/add-category")}> + add new category</button>
         </div>
 
         <table className="w-full border-collapse"> 
