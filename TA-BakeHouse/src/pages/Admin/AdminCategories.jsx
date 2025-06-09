@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 //import AddCategory  from "./AddCategory";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([
@@ -10,7 +10,7 @@ const AdminCategories = () => {
     { id: 3, name: "Breads" },
     { id: 4, name: "Cookies" },
   ]);
-    const nav=useNavigate();
+    
   
   return (
     <>
@@ -18,7 +18,10 @@ const AdminCategories = () => {
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 m-50">
         <div className="bg-gray-200 flex justify-between items-center p-4 m-4 rounded-lg ">
           <h2 className="text-2xl font-bold">All categories</h2>
-          <button className=" font-bold bg-sky-200  rounded-lg py-2 px-4 hover:bg-sky-300 " onClick={()=>nav("/admin/add-category")}> + add new category</button>
+          <Link to="/admin/add-category">
+          <button className="font-bold bg-sky-200  rounded-lg py-2 px-4 hover:bg-sky-300 " > + add new category</button>
+          </Link>
+          
         </div>
 
         <table className="w-full border-collapse"> 
@@ -43,7 +46,10 @@ const AdminCategories = () => {
             ))}
           </tbody>
         </table>
-        <button className="bg-sky-400 py-2 px-4 rounded-lg m-4 w-20"onClick={()=>nav("/dashboard")}>Back </button>
+        <Link to="/admin/dashboard"> 
+         <button className="bg-sky-400 py-2 px-4 rounded-lg m-4 w-20">Back </button>
+        </Link>
+       
       </div>
       
       

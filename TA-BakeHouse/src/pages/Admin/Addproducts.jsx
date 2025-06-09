@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Addproducts = () => {
     const categories = [
@@ -13,7 +13,7 @@ const Addproducts = () => {
   const [category, setcategory] = useState('');
   const [productname,setproductname]=useState('');
   const [discryption,setdiscryption]=useState('');
-  const nav=useNavigate();
+  
 
   function imagehandler(e) {
     setimage(e.target.files[0]);
@@ -23,7 +23,7 @@ const Addproducts = () => {
   }
   function handlesubmit(e){
      e.preventDefault();
-   nav("/admin-products");
+   
 
   }
   return (
@@ -34,6 +34,7 @@ const Addproducts = () => {
             Add New Products
           </h2>
           <div>
+            <Link to="/admin/admin-products">
             <form onSubmit={handlesubmit}>
               <label className="font-bold">Product Name:</label>
               <input
@@ -73,11 +74,16 @@ const Addproducts = () => {
               />
               
               <div className=" flex justify-center my-3 ">
-                 <button className="bg-gray-300 py-2 px-4 mr-2 rounded-lg" onClick={()=>nav("/admin-products")}>Back</button>
+                <Link to="/admin/admin-products">
+                <button className="bg-gray-300 py-2 px-4 mr-2 rounded-lg" >Back</button>
+                </Link>
+                 
                  <button className="bg-gray-300 py-2 px-4 ml-2 rounded-lg" type="submit">Submit</button>
               </div>
              
             </form>
+            </Link>
+            
           </div>
         </div>
       </div>

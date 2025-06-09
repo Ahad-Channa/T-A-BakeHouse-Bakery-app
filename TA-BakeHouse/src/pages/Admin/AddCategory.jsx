@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
  const AddCategory = () => {
-    const nav=useNavigate()
+    
   return (
     <>
       <div className="h-screen flex items-center justify-center bg-gray-100">
@@ -21,10 +21,10 @@ import { Link } from "react-router-dom";
             </div>
 
             <div className="flex justyfy-between  ">
-              <Link>
+              <Link to="/admin/admin-category"> 
               <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg" onClick={()=>{}}>Add</button>
               </Link>
-              <Link to="admin-category">
+              <Link to="/admin/admin-category">
               <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg">Cancel</button>
               </Link>
               
