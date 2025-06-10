@@ -7,12 +7,12 @@ function Navbar() {
       <h1 className="text-3xl font-bold tracking-wide">🍰 T&A Bakehouse</h1>
 
       <div className="flex gap-4">
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Home
-        </a>
+        </Link>
         <a
           href="#about"
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"

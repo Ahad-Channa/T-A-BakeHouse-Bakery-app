@@ -3,23 +3,23 @@ import React from "react";
 export default function About() {
   return (
     <section id="about" className="bg-gradient-to-br  py-20 px-4 md:px-12 lg:px-24">
-      {/* Main heading */}
+      
       <h2 className="text-5xl font-extrabold text-center text-gray-800 mb-12 leading-tight tracking-wide">
         About Us
       </h2>
 
-      {/* First content block: Image left, text right */}
+     
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-16">
-        {/* Image on the left */}
-        <div className="w-full md:w-1/2 lg:w-2/5 flex justify-center">
+       
+        <div className="md:w-1/2 flex justify-center">
           <img
             src="/images/png-clipart-torta-cupcake-bakery-custard-sponge-cake-chocolate-cake-food-frozen-dessert-thumbnail-removebg-preview.png"
             alt="Delicious baked goods from T&A Bakehouse"
-            className="w-full max-w-md md:max-w-none rounded-2xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out"
+            className="w-full max-w-xs md:max-w-md rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out"
+
           />
         </div>
 
-        {/* Text content on the right */}
         <div className="md:w-1/2 lg:w-3/5 text-gray-800 text-lg leading-relaxed">
           <p className="mb-6">
             At <strong>T&A Bakehouse</strong>, we love making delicious baked
@@ -39,24 +39,25 @@ export default function About() {
         </div>
       </div>
 
-      {/* Second content block: "We're proud to use:" heading, List left, Image right */}
+      
       <h3 className="text-4xl font-bold text-center text-gray-800 mb-10 mt-16 leading-tight">
         What Makes Us Special
       </h3>
 
       <div className="flex flex-col md:flex-row-reverse items-center justify-center gap-12">
-        {/* Image on the right */}
+       
         <div className="w-full md:w-1/2 lg:w-2/5 flex justify-center">
           <img
-            src="/images/girl.png" // Assuming this image is relevant and positive
+            src="/images/girl.png" 
             alt="Our dedicated team member"
-            className="w-full max-w-md md:max-w-none rounded-2xl shadow-xl transform hover:scale-105 transition duration-300 ease-in-out"
+            className="w-full max-w-xs md:max-w-md rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out"
+
           />
         </div>
 
-        {/* List on the left */}
+       
         <div className="md:w-1/2 lg:w-3/5 text-gray-800">
-          <ul className="list-disc list-inside space-y-5 text-lg pl-4"> {/* Added padding left for list bullet alignment */}
+          <ul className="list-disc list-inside space-y-5 text-lg pl-4"> 
             <li>
               <strong className="text-orange-600">Fresh, Quality Ingredients: </strong> We believe in using
               the finest and freshest ingredients in all our baked goods, ensuring

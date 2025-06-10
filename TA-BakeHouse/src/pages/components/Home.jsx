@@ -1,5 +1,6 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 const Home = () => {
 
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       </h1>
 
       <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto gap-6">
-        {/* Left side - Text */}
+      
         <div className="md:w-1/2 text-center md:text-left space-y-4">
           <h2 className="text-3xl font-bold mb-8  text-yellow-700">
             From Our Oven to Your Heart
@@ -20,10 +21,13 @@ const Home = () => {
             simple moment, we are here to make it sweeter.
           </p>
 
-          <button className="bg-gray-200 py-2 px-4 rounded-lg ">Join now</button>
+          <Link to="/login" >
+          <button className="mt-4 bg-yellow-500 text-white py-2 px-6 rounded-xl shadow-md hover:bg-yellow-600 transition duration-300">Join now</button>
+          </Link>
+          
         </div>
 
-        {/* Right side - Image */}
+        
         <div className="md:w-1/2 flex justify-center">
           <img
             src="/images/ChatGPT Image .png"
@@ -32,7 +36,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <Outlet/>
+     
     </div>
     
   );
