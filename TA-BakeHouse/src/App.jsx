@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // User Layout & Pages
-import Layout from "./pages/User/Layout";
-import Home from "./pages/User/Home";
-import Login from "./pages/User/Login";
+import Layout from "./pages/components/Layout";
+import Home from "./pages/components/Home";
+import Login from "./pages/components/Login";
 import Cart from "./pages/User/Cart";
-import Register from "./pages/User/Register";
+import Register from "./pages/components/Register";
 import ClientProducts from "./pages/User/cliendproduct";
 import ClientCategories from "./pages/User/ClientCategory";
 
@@ -26,6 +26,9 @@ import Products from "./pages/components/Products";
 
 import About from "./pages/components/About";
 import Contactus from "./pages/components/Contactus";
+import LandingPage  from "./pages/components/LandingPage";
+
+
 
 const router = createBrowserRouter([
   // 👤 User Routes
@@ -33,15 +36,17 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { path: "", element: <Home /> },
-      { path: "/login", element: <Login /> },
-      { path: "/register", element: <Register /> },
-      { path: "/products", element: <Products /> },
-      { path: "/cart", element: <Cart /> },
-      { path: "/client-products", element: <ClientProducts /> },
-      { path: "/client-category", element: <ClientCategories/>},
-      {path : "/about" , element : <About/>},
-      {path : "/contact-us", element: <Contactus/>}
+      {  index: true, element: <LandingPage />},
+      { path: "home", element: <Home /> },
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+      { path: "products", element: <Products /> },
+      { path: "cart", element: <Cart /> },
+      { path: "client-products", element: <ClientProducts /> },
+      { path: "client-category", element: <ClientCategories/>},
+      {path : "about" , element : <About/>},
+      {path : "contact-us", element: <Contactus/>},
+      
       
     ],
   },
