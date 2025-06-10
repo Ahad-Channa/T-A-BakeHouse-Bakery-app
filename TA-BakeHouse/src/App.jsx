@@ -1,3 +1,4 @@
+// App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // User Layout & Pages
@@ -29,9 +30,9 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { path: "", element: <Home /> },
-      { path: "login", element: <Login /> },
+      { path: "", element: <Login /> }, // Default path → Login
       { path: "register", element: <Register /> },
+      { path: "home", element: <Home /> },
       { path: "products", element: <Products /> },
       { path: "cart", element: <Cart /> },
       { path: "client-products", element: <ClientProducts /> },
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <AdminLayout />,
     children: [
-      { path: "dashboard", element: <Dashboards /> },
+      { path: "", element: <Dashboards /> },
       { path: "admin-category", element: <AdminCategories /> },
       { path: "add-category", element: <AddCategory /> },
       { path: "admin-products", element: <AdminProducts /> },
