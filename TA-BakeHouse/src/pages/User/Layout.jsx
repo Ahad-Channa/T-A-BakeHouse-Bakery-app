@@ -1,14 +1,15 @@
+// pages/User/Layout.jsx
 import React from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 
-import { Outlet } from "react-router-dom";
-
 const Layout = () => {
+  const location = useLocation();
+  const hideNavbar = location.pathname === "/" || location.pathname === "/register";
+
   return (
     <>
-    
-     
-      <Navbar />
+      {!hideNavbar && <Navbar />}
       <div className="p-4">
         <Outlet />
       </div>

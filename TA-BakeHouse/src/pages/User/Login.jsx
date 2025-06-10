@@ -1,21 +1,34 @@
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 function Login() {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email').required(' Email is Required'),
-      password: Yup.string().min(6, 'Minimum 6 characters').required('Password is Required'),
+      email: Yup.string().email('Invalid email').required('Email is required'),
+      password: Yup.string().min(6, 'Minimum 6 characters').required('Password is required'),
     }),
-    onSubmit: values => {
-      console.log('Login Submitted:', values);
-      // Here you can call your backend login API
+    onSubmit: async (values, { setSubmitting, setErrors }) => {
+        try {
+          const res = await axios.post('http://localhost:5000/api/auth/login', values);
+          localStorage.setItem('token', res.data.token); // save token
+          navigate(res.data.role == 'user' ? "/home" : "/admin"); // redirect to home
+          
+        } catch (err) {
+          console.error(err);
+          setErrors({ email: 'Login failed. Check credentials.' });
+        } finally {
+          setSubmitting(false);
+        }
     },
   });
 

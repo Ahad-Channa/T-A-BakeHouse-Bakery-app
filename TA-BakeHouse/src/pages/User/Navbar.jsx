@@ -8,7 +8,7 @@ function Navbar() {
       
       <div className="flex gap-4">
         <Link 
-          to="/" 
+          to="/home" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Home
@@ -26,10 +26,10 @@ function Navbar() {
           Cart
         </Link>
         <Link 
-          to="/login" 
+          to="/" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
-          Login
+          Logout
         </Link>
         
       </div>

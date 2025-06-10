@@ -1,3 +1,4 @@
+// App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // User Layout & Pages
@@ -29,12 +30,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { path: "", element: <Home /> },
-      { path: "/login", element: <Login /> },
-      { path: "/register", element: <Register /> },
-      { path: "/products", element: <Products /> },
-      { path: "/cart", element: <Cart /> },
-      { path: "/client-products", element: <ClientProducts /> },
+      { path: "", element: <Login /> }, // Default path → Login
+      { path: "register", element: <Register /> },
+      { path: "home", element: <Home /> },
+      { path: "products", element: <Products /> },
+      { path: "cart", element: <Cart /> },
+      { path: "client-products", element: <ClientProducts /> },
     ],
   },
 
@@ -43,15 +44,15 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <AdminLayout />,
     children: [
-      { path: "/admin", element: <Dashboards /> },
-      { path: "/admin/admin-category", element: <AdminCategories /> },
-      { path: "/admin/add-category", element: <AddCategory /> },
-      { path: "/admin/admin-products", element: <AdminProducts /> },
-      { path: "/admin/add-product", element: <Addproducts /> },
-      { path: "/admin/incoming-orders", element: <Incoming_orders /> },
-      { path: "/admin/previous-orders", element: <Prev_orders /> },
-      { path: "/admin/feedbacks", element: <Feedbacks /> },
-      { path: "/admin/order-details/:orderId", element: <OrderDetails /> },
+      { path: "", element: <Dashboards /> },
+      { path: "admin-category", element: <AdminCategories /> },
+      { path: "add-category", element: <AddCategory /> },
+      { path: "admin-products", element: <AdminProducts /> },
+      { path: "add-product", element: <Addproducts /> },
+      { path: "incoming-orders", element: <Incoming_orders /> },
+      { path: "previous-orders", element: <Prev_orders /> },
+      { path: "feedbacks", element: <Feedbacks /> },
+      { path: "order-details/:orderId", element: <OrderDetails /> },
     ],
   },
 ]);

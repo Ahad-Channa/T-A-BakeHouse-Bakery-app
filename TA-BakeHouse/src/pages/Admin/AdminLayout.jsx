@@ -16,6 +16,7 @@ function AdminLayout() {
           <Link to="/admin/incoming-orders" className="hover:bg-gray-700 p-2 rounded">Incoming Orders</Link>
           <Link to="/admin/previous-orders" className="hover:bg-gray-700 p-2 rounded">Previous Orders</Link>
           <Link to="/admin/feedbacks" className="hover:bg-gray-700 p-2 rounded">Feedbacks</Link>
+          <Link to="/" className="hover:bg-gray-700 p-2 rounded">Logout</Link>
         </nav>
       </aside>
 
