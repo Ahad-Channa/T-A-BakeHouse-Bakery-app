@@ -1,4 +1,4 @@
-// App.jsx
+// 📁 src/App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // User Layout & Pages
@@ -21,21 +21,17 @@ import Feedbacks from "./pages/Admin/Feedbacks";
 import Prev_orders from "./pages/Admin/Prev_orders";
 import OrderDetails from "./pages/Admin/OrderDetails";
 
-// Shared Component Page
-import Products from "./pages/components/Products";
-
 const router = createBrowserRouter([
   // 👤 User Routes
   {
     path: "/",
     element: <Layout />,
     children: [
-      { path: "", element: <Login /> }, // Default path → Login
+      { path: "", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "home", element: <Home /> },
-      { path: "products", element: <Products /> },
+      { path: "products", element: <ClientProducts /> },
       { path: "cart", element: <Cart /> },
-      { path: "client-products", element: <ClientProducts /> },
     ],
   },
 
