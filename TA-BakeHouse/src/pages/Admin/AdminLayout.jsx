@@ -8,7 +8,7 @@ function AdminLayout() {
       <aside className="w-64 bg-gray-800 text-white p-4 space-y-4">
         <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
         <nav className="flex flex-col space-y-2">
-          <Link to="/admin/dashboard" className="hover:bg-gray-700 p-2 rounded">Dashboard</Link>
+          <Link to="/admin" className="hover:bg-gray-700 p-2 rounded">Dashboard</Link>
           <Link to="/admin/admin-category" className="hover:bg-gray-700 p-2 rounded">Categories</Link>
           <Link to="/admin/add-category" className="hover:bg-gray-700 p-2 rounded">Add Category</Link>
           <Link to="/admin/admin-products" className="hover:bg-gray-700 p-2 rounded">Products</Link>

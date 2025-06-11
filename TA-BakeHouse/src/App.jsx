@@ -20,6 +20,7 @@ import Addproducts from "./pages/Admin/Addproducts";
 import Feedbacks from "./pages/Admin/Feedbacks";
 import Prev_orders from "./pages/Admin/Prev_orders";
 import OrderDetails from "./pages/Admin/OrderDetails";
+import EditCategory from "./pages/Admin/EditCategory";
 
 const router = createBrowserRouter([
   // 👤 User Routes
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
       { path: "admin-category", element: <AdminCategories /> },
       { path: "add-category", element: <AddCategory /> },
       { path: "admin-products", element: <AdminProducts /> },
+      {path: "/admin/edit-category/:id", element: <EditCategory />},
       { path: "add-product", element: <Addproducts /> },
       { path: "incoming-orders", element: <Incoming_orders /> },
       { path: "previous-orders", element: <Prev_orders /> },
