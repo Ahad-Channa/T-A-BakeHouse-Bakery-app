@@ -1,8 +1,9 @@
 
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import axios from "axios";
+
 
 const AddCategory = () => {
   const nav = useNavigate();
@@ -37,25 +38,19 @@ const AddCategory = () => {
             />
           </div>
 
-          <div className="flex justify-between">
-            <button
-              type="submit"
-              onClick={() => nav("/admin/admin-category")}
-              className="bg-gray-200 py-2 px-4 m-4 rounded-lg hover:bg-gray-300"
-            >
-              Add
-            </button>
-            <button
-              type="button"
-              onClick={() => nav("/admin/admin-category")}
-              className="bg-gray-200 py-2 px-4 m-4 rounded-lg hover:bg-gray-300"
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
+            <div className="flex justyfy-between  ">
+              <Link to="/admin/admin-category"> 
+              <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg" >Add</button>
+              </Link>
+              <Link to="/admin/admin-category">
+              <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg">Cancel</button>
+              </Link>
+              
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+
   );
 };
 

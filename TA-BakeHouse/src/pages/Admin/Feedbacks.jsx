@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
  const Feedbacks = () => {
   const feedbacks = [
     { id: 1, user: 'Tasmia', message: 'Loved the chocolate cake!', date: '2025-06-04' },
     { id: 2, user: 'Ahad', message: 'Pastries were fresh and tasty.', date: '2025-06-03' },
     { id: 3, user: 'Koebhi', message: 'Delivery was a bit late.', date: '2025-06-02' },
   ];
-  const nav=useNavigate();
+ 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -36,7 +36,10 @@ import { useNavigate } from 'react-router-dom';
           </tbody>
         </table>
         <div className='flex justify-center my-3 '>
-            <button className="bg-gray-400 rounded-lg py-2 px-4 " onClick={()=>nav("/dashboard")}>Back</button>
+        <Link to="/admin/dashboard">
+         <button className="bg-gray-400 rounded-lg py-2 px-4 " >Back</button>
+        </Link>
+           
         </div>
         
       </div>

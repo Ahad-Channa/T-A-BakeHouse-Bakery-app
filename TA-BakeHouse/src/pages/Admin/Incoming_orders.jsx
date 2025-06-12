@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
  const Incoming_orders = () => {
   const orders = [
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
     { id: "567", date: "2025-06-05", user: "koebhi" },
     
   ];
-  const nav=useNavigate()
+ 
   return (
     < div >
      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 mt-50">
@@ -29,7 +29,10 @@ import { useNavigate } from 'react-router-dom';
               <td className='py-2 px-4 border text-center'>{ord.user}</td>
               <td className='py-2 px-4 border text-center'>{ord.date}</td>
               <td className='py-2 px-4 border text-center'>
-                <button className='bg-gray-100 rounded-lg py-2 px-4' onClick={()=>nav("/order-details/:orderId")}>View</button></td>
+                <Link to="/admin/order-details/:orderId">
+                <button className='bg-gray-100 rounded-lg py-2 px-4' >View</button>
+                </Link>
+                </td>
             </tr>
             
             )}
@@ -37,7 +40,10 @@ import { useNavigate } from 'react-router-dom';
           </tbody>
       </table>
       <div className='flex justify-center my-3'>
-      <button className="bg-gray-400 rounded-lg py-2 px-4" onClick={()=>nav("/dashboard")}>Back</button>
+        <Link to="/admin/dashboard">
+         <button className="bg-gray-400 rounded-lg py-2 px-4" >Back</button>
+        </Link>
+     
       </div>
        
 

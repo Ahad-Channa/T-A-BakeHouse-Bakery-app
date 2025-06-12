@@ -1,10 +1,9 @@
-
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
- const OrderDetails = () => {
+const OrderDetails = () => {
   const { orderId } = useParams();
-  const nav = useNavigate();
 
   // Dummy data (ideally should be fetched)
   const order = {
@@ -23,9 +22,15 @@ import { useParams, useNavigate } from "react-router-dom";
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg">
       <h2 className="text-2xl font-bold mb-4">Order Details - {order.id}</h2>
       <div className="mb-4">
-        <p><strong>User:</strong> {order.user}</p>
-        <p><strong>Phone No:</strong> {order.phone}</p>
-        <p><strong>Address:</strong> {order.address}</p>
+        <p>
+          <strong>User:</strong> {order.user}
+        </p>
+        <p>
+          <strong>Phone No:</strong> {order.phone}
+        </p>
+        <p>
+          <strong>Address:</strong> {order.address}
+        </p>
       </div>
 
       <table className="w-full mb-4 border">
@@ -48,30 +53,22 @@ import { useParams, useNavigate } from "react-router-dom";
       <p className="font-bold text-lg mb-4">Total Price: {order.total}</p>
 
       <div className="flex gap-4">
-        <button
-          className="bg-green-500  px-4 py-2 rounded-lg"
-          onClick={() => {
-            
-            nav("/incoming-orders");
-          }}
-        >
-          Confirm
-        </button>
-        <button
-          className="bg-red-500  px-4 py-2 rounded-lg"
-          onClick={() => {
-           
-            nav("/incoming-orders");
-          }}
-        >
-          Reject
-        </button>
-        <button className="bg-gray-400 rounded-lg py-2 px-4" onClick={()=>nav("/incoming-orders")}>Back</button>
+        <Link to="/admin/incoming-orders">
+          <button className="bg-green-500  px-4 py-2 rounded-lg">
+            Confirm
+          </button>
+        </Link>
+
+        <Link to="/admin/incoming-orders">
+          <button className="bg-red-500  px-4 py-2 rounded-lg">Reject</button>
+        </Link>
+
+        <Link to="/admin/incoming-orders">
+          <button className="bg-gray-400 rounded-lg py-2 px-4">Back</button>
+        </Link>
       </div>
-      
     </div>
   );
 };
-
 
 export default OrderDetails;

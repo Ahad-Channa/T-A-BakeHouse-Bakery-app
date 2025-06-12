@@ -1,25 +1,4 @@
-/*import React from "react";
-
-export const Prev_orders = () => {
-  return (
-    <div className="w-full">
-      <div className="flex justify-between">
-        <button className="py-2 px-4 bg-emerald-200 hover:bhg-emerald-400 ">
-          View Rejected
-        </button>
-        <button className="py-2 px-4 bg-yellow-200 hover:bhg-yellow-400 ">
-          View Confirmed
-        </button>
-        <button className="py-2 px-4 bg-cyan-200 hover:bhg-cyan-400 ">
-          View Delivered
-        </button>
-      </div>
-    </div>
-  );
-};
-*/
-
-import { useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import React, { useState } from 'react';
 
 const Prev_orders = () => {
@@ -27,14 +6,14 @@ const Prev_orders = () => {
     { id: '101', user: 'Tasmia', date: '2025-05-15', total: 1200, status: 'delivered' },
     { id: '102', user: 'Ahad', date: '2025-05-10', total: 850, status: 'confirmed' },
     { id: '103', user: 'Koebhi', date: '2025-04-28', total: 600, status: 'rejected' },
-    { id: '104', user: 'Sarah', date: '2025-04-20', total: 950, status: 'delivered' },
-    { id: '105', user: 'Areeb', date: '2025-04-15', total: 720, status: 'confirmed' },
+    { id: '104', user: 'person', date: '2025-04-20', total: 950, status: 'delivered' },
+    { id: '105', user: 'kuchbhi', date: '2025-04-15', total: 720, status: 'confirmed' },
   ];
 
   const [filteredStatus, setFilteredStatus] = useState('delivered');
 
   const filteredOrders = allOrders.filter(order => order.status === filteredStatus);
-  const nav=useNavigate();
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
@@ -98,7 +77,11 @@ const Prev_orders = () => {
             )}
           </tbody>
         </table>
-        <button className='bg-gray-400 py-2 px-4 m-5 rounded-lg  ' onClick={()=>nav("/dashboard") }>Back</button>
+
+        <Link to="/admin/dashboard">
+        <button className='bg-gray-400 py-2 px-4 m-5 rounded-lg  ' >Back</button>
+        </Link>
+        
       </div>
       
     </div>
