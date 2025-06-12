@@ -15,12 +15,13 @@ import Dashboards from "./pages/Admin/Dashboards";
 import Incoming_orders from "./pages/Admin/Incoming_orders";
 import AdminCategories from "./pages/Admin/AdminCategories";
 import AddCategory from "./pages/Admin/AddCategory";
-import AdminProducts from "./pages/Admin/adminproduct";
-import Addproducts from "./pages/Admin/Addproducts";
+import AdminProducts from "./pages/Admin/AdminProducts";
+import Addproducts from "./pages/Admin/AddProduct";
 import Feedbacks from "./pages/Admin/Feedbacks";
 import Prev_orders from "./pages/Admin/Prev_orders";
 import OrderDetails from "./pages/Admin/OrderDetails";
 import EditCategory from "./pages/Admin/EditCategory";
+import EditProduct from "./pages/Admin/EditProduct";
 
 const router = createBrowserRouter([
   // 👤 User Routes
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
       { path: "add-category", element: <AddCategory /> },
       { path: "admin-products", element: <AdminProducts /> },
       {path: "/admin/edit-category/:id", element: <EditCategory />},
+      {path: "/admin/edit-product/:id", element: <EditProduct />},
       { path: "add-product", element: <Addproducts /> },
       { path: "incoming-orders", element: <Incoming_orders /> },
       { path: "previous-orders", element: <Prev_orders /> },
