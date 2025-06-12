@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
-  const nav = useNavigate();
+ 
 
   // Fetch categories from backend on component mount
   useEffect(() => {
@@ -58,18 +58,25 @@ const AdminCategories = () => {
               <td className="text-center border">{category.name}</td>
               <td className="text-center border">
                 
-                <button
+               <Link to={`/admin/edit-category/${category._id}`}>
+               <button
                   className="bg-sky-200 py-2 px-4 m-2 rounded-lg"
-                  onClick={() => nav(`/admin/edit-category/${category._id}`)}
+                 
                 >
                   Edit
                 </button>
+               </Link> 
+
+               
                 <button
                   className="bg-red-400 py-2 px-4 m-2 rounded-lg text-white hover:bg-red-500"
                   onClick={() => deleteCategory(category._id)}
                 >
                   Delete
                 </button>
+               
+
+               
               </td>
             </tr>
           ))}
