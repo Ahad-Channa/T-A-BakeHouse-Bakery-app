@@ -1,6 +1,9 @@
 // 📁 src/App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+// Auth Context Guard
+import PrivateRoute from "./routes/PrivateRoute";
+
 // User Layout & Pages
 import Layout from "./pages/User/Layout";
 import Home from "./pages/User/Home";
@@ -26,35 +29,36 @@ import EditProduct from "./pages/Admin/EditProduct";
 const router = createBrowserRouter([
   // 👤 User Routes
   {
-    path: "/",
-    element: <Layout />,
-    children: [
-      { path: "", element: <Login /> },
-      { path: "register", element: <Register /> },
-      { path: "home", element: <Home /> },
-      { path: "products", element: <ClientProducts /> },
-      { path: "cart", element: <Cart /> },
-    ],
-  },
+  path: "/",
+  element: <Layout />,
+  children: [
+    { path: "", element: <Login /> },
+    { path: "register", element: <Register /> },
+    { path: "home", element: <PrivateRoute requiredRole="user"><Home /></PrivateRoute> },
+    { path: "client-products", element: <PrivateRoute requiredRole="user"><ClientProducts /></PrivateRoute> },
+    { path: "cart", element: <PrivateRoute requiredRole="user"><Cart /></PrivateRoute> },
+  ],
+},
+
 
   // 🛠️ Admin Routes
   {
-    path: "/admin",
-    element: <AdminLayout />,
-    children: [
-      { path: "", element: <Dashboards /> },
-      { path: "admin-category", element: <AdminCategories /> },
-      { path: "add-category", element: <AddCategory /> },
-      { path: "admin-products", element: <AdminProducts /> },
-      {path: "/admin/edit-category/:id", element: <EditCategory />},
-      {path: "/admin/edit-product/:id", element: <EditProduct />},
-      { path: "add-product", element: <Addproducts /> },
-      { path: "incoming-orders", element: <Incoming_orders /> },
-      { path: "previous-orders", element: <Prev_orders /> },
-      { path: "feedbacks", element: <Feedbacks /> },
-      { path: "order-details/:orderId", element: <OrderDetails /> },
-    ],
-  },
+  path: "/admin",
+  element: <AdminLayout />,
+  children: [
+    { path: "", element: <PrivateRoute requiredRole="admin"><Dashboards /></PrivateRoute> },
+    { path: "admin-category", element: <PrivateRoute requiredRole="admin"><AdminCategories /></PrivateRoute> },
+    { path: "add-category", element: <PrivateRoute requiredRole="admin"><AddCategory /></PrivateRoute> },
+    { path: "admin-products", element: <PrivateRoute requiredRole="admin"><AdminProducts /></PrivateRoute> },
+    { path: "edit-category/:id", element: <PrivateRoute requiredRole="admin"><EditCategory /></PrivateRoute> },
+    { path: "edit-product/:id", element: <PrivateRoute requiredRole="admin"><EditProduct /></PrivateRoute> },
+    { path: "add-product", element: <PrivateRoute requiredRole="admin"><Addproducts /></PrivateRoute> },
+    { path: "incoming-orders", element: <PrivateRoute requiredRole="admin"><Incoming_orders /></PrivateRoute> },
+    { path: "previous-orders", element: <PrivateRoute requiredRole="admin"><Prev_orders /></PrivateRoute> },
+    { path: "feedbacks", element: <PrivateRoute requiredRole="admin"><Feedbacks /></PrivateRoute> },
+    { path: "order-details/:orderId", element: <PrivateRoute requiredRole="admin"><OrderDetails /></PrivateRoute> },
+  ]
+},
 ]);
 
 function App() {

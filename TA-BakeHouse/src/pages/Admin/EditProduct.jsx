@@ -129,7 +129,7 @@ const EditProduct = () => {
           </button>
           <button
             type="button"
-            onClick={() => nav("/admin/products")}
+            onClick={() => nav("/admin/admin-products")}
             className="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400"
           >
             Cancel

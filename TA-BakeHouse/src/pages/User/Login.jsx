@@ -1,9 +1,42 @@
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import { useFormik } from 'formik';
+// import * as Yup from 'yup';
+
+// function Login() {
+//   const formik = useFormik({
+//     initialValues: {
+//       email: '',
+//       password: '',
+//     },
+//     validationSchema: Yup.object({
+//       email: Yup.string().email('Invalid email').required('Email is required'),
+//       password: Yup.string().min(6, 'Minimum 6 characters').required('Password is required'),
+//     }),
+//     onSubmit: (values) => {
+//       // Dummy handling only — no backend call
+//       console.log('Login form submitted:', values);
+//       alert('Login submitted! Backend connection will be added later.');
+//     },
+//   });
+
+//   return (
+   
+//   );
+// }
+
+// export default Login;
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useAuth } from '../../context/AuthContext';
 
 function Login() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -13,10 +46,16 @@ function Login() {
       email: Yup.string().email('Invalid email').required('Email is required'),
       password: Yup.string().min(6, 'Minimum 6 characters').required('Password is required'),
     }),
-    onSubmit: (values) => {
-      // Dummy handling only — no backend call
-      console.log('Login form submitted:', values);
-      alert('Login submitted! Backend connection will be added later.');
+    onSubmit: async (values, { setSubmitting, setErrors }) => {
+      try {
+        await login(values);
+        navigate("/home"); // redirect on success
+      } catch (err) {
+        console.error(err);
+        setErrors({ email: "Login failed. Please try again." });
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
 

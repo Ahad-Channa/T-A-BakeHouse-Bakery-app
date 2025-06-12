@@ -55,7 +55,7 @@ const EditCategory = () => {
             </button>
             <button
               type="button"
-              onClick={() => nav("/admin-category")}
+              onClick={() => nav("/admin/admin-category")}
               className="bg-gray-300 py-2 px-4 rounded-lg hover:bg-gray-400"
             >
               Cancel
