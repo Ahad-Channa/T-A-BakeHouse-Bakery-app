@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import {Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const EditCategory = () => {
@@ -53,13 +53,16 @@ const EditCategory = () => {
             >
               Update
             </button>
+            <Link to="/admin/admin-category">
             <button
               type="button"
-              onClick={() => nav("/admin-category")}
+             
               className="bg-gray-300 py-2 px-4 rounded-lg hover:bg-gray-400"
             >
               Cancel
             </button>
+            </Link>
+            
           </div>
         </form>
       </div>

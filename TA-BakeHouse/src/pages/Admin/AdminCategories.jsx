@@ -83,7 +83,7 @@ const AdminCategories = () => {
         </tbody>
       </table>
 
-      <Link to="/admin/dashboard"> 
+      <Link to="/Admin"> 
          <button className="bg-sky-400 py-2 px-4 rounded-lg m-4 w-20">Back </button>
         </Link>
     </div>

@@ -36,7 +36,7 @@ import { Link} from 'react-router-dom';
           </tbody>
         </table>
         <div className='flex justify-center my-3 '>
-        <Link to="/admin/dashboard">
+        <Link to="/admin">
          <button className="bg-gray-400 rounded-lg py-2 px-4 " >Back</button>
         </Link>
            
