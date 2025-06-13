@@ -62,8 +62,8 @@ const ClientCategories = () => {
     { id: 2, name: "Pastries", image: "/images/biscuits.jpg" },
     { id: 3, name: "Breads", image: "/images/ChatGPT Image .png" },
     { id: 4, name: "Cookies", image: "/images/chocolate-chip.png" },
-    { id: 5, name: "Doughnuts", image: "/images/doughnut.png" },
-    { id: 6, name: "Cupcakes", image: "/images/cupcake.png" },
+    { id: 5, name: "Doughnuts", image: "/images/bread.jpg" },
+    { id: 6, name: "Cupcakes", image: "/images/cupcake.webp" },
     { id: 7, name: "Brownies", image: "/images/brownie.png" },
     { id: 8, name: "Tarts", image: "/images/tart.png" },
   ];

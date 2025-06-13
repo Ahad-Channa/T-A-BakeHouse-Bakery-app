@@ -28,6 +28,7 @@ import About from "./pages/components/About";
 import Contactus from "./pages/components/Contactus";
 import LandingPage  from "./pages/components/LandingPage";
 import Products from "./pages/components/Products";
+import Checkout from "./pages/User/Checkout";
 
 
 
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
       { path: "client-category", element: <ClientCategories/>},
       {path : "about" , element : <About/>},
       {path : "contact-us", element: <Contactus/>},
+      {path: "checkout", element: <Checkout/>}
       
       
     ],
