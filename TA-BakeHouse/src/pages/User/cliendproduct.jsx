@@ -67,16 +67,16 @@ const products = [
   // Add more as needed...
 ];
 
-export default function Example() {
+function Clientproducts() {
   return (
-    <div className="bg-white">
+    <div >
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-4xl font-bold tracking-tight text-gray-900 text-center mb-8">Products</h2>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
           {products.map((product) => (
-            <div key={product.id} className="group relative border rounded-xl p-4 shadow hover:shadow-lg transition">
-              <img
+            <div key={product.id} className="group relative border rounded-xl p-4 shadow hover:shadow-lg transition bg-dpurp border-2 border-bordercolor">
+              <img 
                 alt={product.imageAlt}
                 src={product.imageSrc}
                 className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75"
@@ -107,3 +107,6 @@ export default function Example() {
     </div>
   );
 }
+
+
+export default  Clientproducts;

@@ -99,7 +99,7 @@ const ClientCategories = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-4 text-center text-sky-700">
+      <h2 className="text-3xl font-bold mb-4 text-center text-deeppurp">
       Categories
       </h2>
 
@@ -117,8 +117,8 @@ const ClientCategories = () => {
         <button
           onClick={handleMoveLeft}
           disabled={!canMoveLeft}
-          className={`px-4 py-2 rounded bg-sky-500 text-white shadow ${
-            !canMoveLeft ? "opacity-40 cursor-not-allowed" : "hover:bg-sky-600"
+          className={`  px-4 py-2 rounded bg-dpurp border-2 border-bordercolor text-bordercolor shadow ${
+            !canMoveLeft ? "opacity-40 cursor-not-allowed" : "hover:bg-dpurp"
           }`}
         >
           ← Prev
@@ -127,8 +127,8 @@ const ClientCategories = () => {
         <button
           onClick={handleMoveRight}
           disabled={!canMoveRight}
-          className={`px-4 py-2 rounded bg-sky-500 text-white shadow ${
-            !canMoveRight ? "opacity-40 cursor-not-allowed" : "hover:bg-sky-600"
+          className={`bg-dpurp px-4 py-2 rounded bg-dpurp border-2 border-bordercolor text-bordercolor shadow ${
+            !canMoveRight ? "opacity-100 cursor-not-allowed" : "hover:bg-dpurp"
           }`}
         >
           Next →
@@ -141,13 +141,13 @@ const ClientCategories = () => {
           {visibleCategories.map((cat) => (
             <div
               key={cat.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-4 flex flex-col items-center justify-center text-center"
+              className="bg-dpurp border-2 border-bordercolor  rounded-3xl shadow-lg hover:shadow-xl transition-all p-4 flex flex-col items-center justify-center text-center"
               title={cat.name}
             >
               <img
                 src={cat.image}
                 alt={cat.name}
-                className="w-28 h-28 rounded-full object-cover mb-2 border border-sky-300 shadow-sm"
+                className="w-28 h-28 rounded-full object-cover mb-2  shadow-sm"
               />
 
               <p className="text-sm font-semibold text-gray-700">{cat.name}</p>

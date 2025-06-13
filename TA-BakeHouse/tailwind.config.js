@@ -7,7 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        softpink: '#ffcfd2',
+        softpink: '#e4c1f9',
+        purp: '#ffc6ff',
+        dpurp: '#f7aef8',
+        deeppurp: '#832161',
+        bordercolor: '#b100e8'
       },
     },
   },

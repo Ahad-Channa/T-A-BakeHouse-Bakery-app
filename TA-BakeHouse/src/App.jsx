@@ -7,7 +7,7 @@ import Home from "./pages/components/Home";
 import Login from "./pages/components/Login";
 import Cart from "./pages/User/Cart";
 import Register from "./pages/components/Register";
-import ClientProducts from "./pages/User/cliendproduct";
+import Clientproducts from "./pages/User/cliendproduct";
 import ClientCategories from "./pages/User/ClientCategory";
 
 // Admin Layout & Pages
@@ -27,8 +27,9 @@ import EditProduct from "./pages/Admin/EditProduct";
 import About from "./pages/components/About";
 import Contactus from "./pages/components/Contactus";
 import LandingPage  from "./pages/components/LandingPage";
-import Products from "./pages/components/Products";
+//import Products from "./pages/components/Products";
 import Checkout from "./pages/User/Checkout";
+import { Usermodule } from "./pages/User/Usermodule";
 
 
 
@@ -42,13 +43,15 @@ const router = createBrowserRouter([
       { path: "home", element: <Home /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-      { path: "products", element: <Products /> },
+     // { path: "products", element: <Products /> },
       { path: "cart", element: <Cart /> },
-      { path: "client-products", element: <ClientProducts /> },
+      { path: "client-products", element: <Clientproducts/> },
       { path: "client-category", element: <ClientCategories/>},
       {path : "about" , element : <About/>},
       {path : "contact-us", element: <Contactus/>},
-      {path: "checkout", element: <Checkout/>}
+      {path: "checkout", element: <Checkout/>},
+      {path: "usermodule", element: <Usermodule/>},
+      
       
       
     ],
