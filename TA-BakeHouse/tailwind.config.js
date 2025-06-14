@@ -8,10 +8,12 @@ export default {
     extend: {
       colors: {
         softpink: '#e4c1f9',
-        purp: '#ffc6ff',
-        dpurp: '#f7aef8',
+        backg: '#d9dcd6',
+        compbg: '#faf3dd',
         deeppurp: '#832161',
-        bordercolor: '#b100e8'
+        bordercolor: '#b88b4a',
+        new : '#e9ecef',
+        compobdr: '#6c757d'
       },
     },
   },

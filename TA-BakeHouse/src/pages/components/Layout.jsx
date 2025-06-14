@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 
 const Layout = () => {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/" || location.pathname === "/register";
+  const hideNavbar = location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <>

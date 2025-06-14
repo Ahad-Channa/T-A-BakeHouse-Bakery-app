@@ -9,6 +9,7 @@ import Cart from "./pages/User/Cart";
 import Register from "./pages/components/Register";
 import Clientproducts from "./pages/User/cliendproduct";
 import ClientCategories from "./pages/User/ClientCategory";
+import Welcome from "./pages/User/welcome";
 
 // Admin Layout & Pages
 import AdminLayout from "./pages/Admin/AdminLayout";
@@ -26,38 +27,61 @@ import EditProduct from "./pages/Admin/EditProduct";
 
 import About from "./pages/components/About";
 import Contactus from "./pages/components/Contactus";
-import LandingPage  from "./pages/components/LandingPage";
-//import Products from "./pages/components/Products";
+import LandingPage from "./pages/components/LandingPage";
 import Checkout from "./pages/User/Checkout";
 import { Usermodule } from "./pages/User/Usermodule";
-
-
+import Client_Navbar from "./pages/User/client_navbar";
 
 const router = createBrowserRouter([
-  // 👤 User Routes
+  //  landing page Routes
   {
     path: "/",
     element: <Layout />,
     children: [
-      {  index: true, element: <LandingPage />},
-      { path: "home", element: <Home /> },
+      { index: true, element: <LandingPage /> },
+      //{ path: "home", element: <Home /> },
+      //{ path: "login", element: <Login /> },
+      //{ path: "register", element: <Register /> },
+      // { path: "products", element: <Products /> },
+
+      { path: "about", element: <About /> },
+      { path: "contact-us", element: <Contactus /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-     // { path: "products", element: <Products /> },
-      { path: "cart", element: <Cart /> },
-      { path: "client-products", element: <Clientproducts/> },
-      { path: "client-category", element: <ClientCategories/>},
-      {path : "about" , element : <About/>},
-      {path : "contact-us", element: <Contactus/>},
-      {path: "checkout", element: <Checkout/>},
-      {path: "usermodule", element: <Usermodule/>},
-      
-      
-      
     ],
   },
 
-  // 🛠️ Admin Routes
+  {
+    // User Routes
+
+    path: "/user",
+    element: <Usermodule />,
+    children: [
+      {
+        index: true,
+        element: (
+          <>
+          
+            <section id="welcome">
+              <Welcome />
+            </section>
+            <section id="client-category">
+              <ClientCategories />
+            </section>
+            <section id="client-products">
+              <Clientproducts />
+            </section>
+          </>
+        ),
+      },
+      { path: "cart", element: <Cart /> },
+      { path: "client-products", element: <Clientproducts /> },
+      { path: "client-category", element: <ClientCategories /> },
+      { path: "checkout", element: <Checkout /> },
+    ],
+  },
+
+  //  Admin Routes
   {
     path: "/admin",
     element: <AdminLayout />,
@@ -66,8 +90,8 @@ const router = createBrowserRouter([
       { path: "admin-category", element: <AdminCategories /> },
       { path: "add-category", element: <AddCategory /> },
       { path: "admin-products", element: <AdminProducts /> },
-      {path: "/admin/edit-category/:id", element: <EditCategory />},
-      {path: "/admin/edit-product/:id", element: <EditProduct />},
+      { path: "edit-category/:id", element: <EditCategory /> },
+      { path: "edit-product/:id", element: <EditProduct /> },
       { path: "add-product", element: <Addproducts /> },
       { path: "incoming-orders", element: <Incoming_orders /> },
       { path: "previous-orders", element: <Prev_orders /> },

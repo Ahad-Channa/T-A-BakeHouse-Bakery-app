@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="w-[800px] min-h-[600px] grid grid-cols-2 gap-4 p-20 bg-slate-200 ">
+      <div className="  flex justify-center bg-gray-100">
+        <div className="w-[800px] min-h-[600px] grid grid-cols-2 gap-4 p-20 bg-white ">
           
           <h2 className="text-3xl text-yellow-600 my-4 font-extrabold col-span-2 text-center">WELCOME ADMIN</h2>
 

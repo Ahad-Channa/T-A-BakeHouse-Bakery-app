@@ -1,47 +1,105 @@
 import React from "react";
 import ClientCategories from "./ClientCategory";
 import Clientproducts from "./cliendproduct";
+import { Outlet } from "react-router-dom";
+import Client_Navbar from "./client_navbar";
 
 export const Usermodule = () => {
   return (
-    <div className="bg-purp">
-      {/* Hero Section */}
-      <div
-        className="w-full bg-cover bg-center  min-h-[600px] rounded-2xl shadow-md flex items-center"
-        style={{ backgroundImage: "url('/images/birthday.avif')" }}
+    <div className="relative bg-backg overflow-hidden ">
+      <svg
+        className="absolute top-[-90px] left-[-90px] w-[240px] h-[240px] opacity-100 z-0"
+        viewBox="0 0 200 200"
       >
-        {/* Text box */}
-        <div className="bg-white/80 p-8 rounded-xl ml-10 max-w-2xl">
-          <h2 className="text-3xl font-bold text-amber-600 mb-2">
-            Heyyy USERNAME
-          </h2>
+        <path
+          fill="#FCD5CE"
+          d="M42.1,-50.7C55.4,-43.9,67.6,-29.1,70.5,-13.6C73.4,1.9,67,18.1,57.3,30.5C47.6,42.9,34.6,51.4,20.1,57.3C5.6,63.2,-10.5,66.6,-25.5,61.2C-40.5,55.7,-54.4,41.5,-59.4,25.8C-64.4,10.1,-60.5,-7.1,-52.4,-21.1C-44.3,-35.1,-32,-46,-18,-52.6C-4,-59.3,11.7,-61.6,26.3,-56.4C40.9,-51.2,55.5,-38.5,42.1,-50.7Z"
+          transform="translate(100 100)"
+        />
+      </svg>
 
-          <h2 className="text-3xl font-bold text-red-800 mb-4">
-            WELCOME TO THE T&A BAKEHOUSE
-          </h2>
+      <svg
+        className="absolute top-6 left-1/2 w-[400px] h-[350px] opacity-70 z-0 -translate-x-1/2"
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="#CDB4DB"
+          d="M39.7,-62C47.3,-56.9,46.5,-38.9,49.4,-24.8C52.2,-10.8,58.8,-0.7,59.2,9.8C59.7,20.3,54.1,31.2,45.6,37.7C37.1,44.2,25.7,46.4,15,48.4C4.2,50.4,-5.8,52.3,-20.5,54.8C-35.2,57.4,-54.4,60.6,-62.2,53.1C-69.9,45.6,-66.1,27.3,-63,12.4C-59.9,-2.4,-57.5,-13.8,-55.1,-27.7C-52.7,-41.6,-50.2,-57.9,-41,-62.3C-31.8,-66.7,-15.9,-59,0.1,-59.1C16,-59.2,32.1,-67,39.7,-62Z"
+          transform="translate(100 100)"
+        />
+      </svg>
 
-          <h3 className="text-2xl text-orange-500 mb-2">
-            Looking for something special?
-          </h3>
+      <svg
+        className="absolute top-[500px] left-[80px] w-[300px] h-[300px] opacity-40 z-0  "
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="#bc6c25"
+          d="M19.6,-31.7C30.1,-19.4,46.6,-19.9,48.7,-15.3C50.9,-10.8,38.8,-1,35.3,12C31.8,25.1,37,41.5,32.5,46.1C28,50.7,14,43.5,0,43.5C-14.1,43.5,-28.2,50.9,-43.2,49.7C-58.1,48.5,-74,38.9,-74.1,26.9C-74.1,14.9,-58.4,0.5,-51.6,-15.6C-44.8,-31.8,-47,-49.7,-39.8,-63.1C-32.7,-76.4,-16.4,-85.3,-5.9,-77.2C4.6,-69.1,9.1,-44,19.6,-31.7Z"
+          transform="translate(100 100)"
+        />
+      </svg>
 
-          <p className="text-lg text-gray-700">
-            Order your favorites now and make every moment a little more
-            special. <br />
-            Freshly baked happiness is just a click away, explore our delights
-            and treat yourself today!
-          </p>
-        </div>
-      </div>
+      <svg
+        className="absolute top-[630px] right-[40px] w-[300px] h-[300px] opacity-40 z-0  "
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="#f72585"
+          d="M20.2,-37.3C26.7,-23.1,32.8,-17.9,41.5,-9.2C50.1,-0.6,61.3,11.5,59.9,20.6C58.5,29.7,44.6,36,32.5,48C20.4,60,10.2,77.9,0.6,77C-9,76.1,-17.9,56.6,-29.1,44.2C-40.3,31.9,-53.8,26.9,-63.5,16.1C-73.2,5.4,-79.1,-11.1,-71.3,-19.4C-63.4,-27.7,-41.9,-27.9,-27.7,-39.6C-13.6,-51.3,-6.8,-74.6,0,-74.6C6.9,-74.7,13.7,-51.5,20.2,-37.3Z"
+          transform="translate(100 100)"
+        />
+      </svg>
 
-    
+      <svg
+        className="absolute top-[60%] right-[300px] w-[260px] h-[260px] opacity-25 z-0"
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="#25a244"
+          d="M23,-24.6C34.3,-23.4,51.2,-22.7,61.7,-14.4C72.1,-6.1,76.2,10,71.7,23.2C67.2,36.3,54.3,46.6,40.9,58.3C27.6,69.9,13.8,82.9,2.7,79.1C-8.4,75.4,-16.7,54.9,-31.6,43.8C-46.6,32.7,-68,30.9,-73.6,22C-79.2,13.1,-68.8,-3,-61.4,-18.1C-53.9,-33.2,-49.4,-47.5,-39.6,-49.2C-29.9,-50.9,-14.9,-40.1,-4.6,-33.8C5.8,-27.5,11.6,-25.8,23,-24.6Z"
+          transform="translate(100 100)"
+        />
+      </svg>
 
-      <div className="px-6 mt-10">
-        <ClientCategories />
-      </div>
+      <svg
+        className="absolute top-[65%] left-1/3 w-[320px] h-[320px] opacity-70 z-0 -translate-x-1/2 -translate-y-1/2"
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="#73d2de"
+          d="M16.6,-29C19.5,-17.4,18.3,-10.2,26.1,0.4C34,11,50.8,25.1,49.3,29C47.7,32.9,27.6,26.8,11.4,33.7C-4.8,40.6,-17.1,60.7,-20.6,58.5C-24.1,56.4,-18.7,32.1,-30.1,15.7C-41.5,-0.6,-69.5,-8.9,-68.7,-11.8C-67.9,-14.8,-38.1,-12.4,-21.9,-21.6C-5.6,-30.9,-2.8,-51.7,2,-54.2C6.9,-56.6,13.8,-40.6,16.6,-29Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      <svg
+        className="absolute bottom-[-80px] left-[-40px] w-[280px] h-[280px] opacity-60 z-0"
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="#FFB6B9"
+          d="M36.5,-42.2C45.8,-35.6,51,-22.8,58.2,-6.6C65.5,9.6,74.9,29.1,69.3,41.2C63.8,53.3,43.3,57.9,27.4,54.8C11.5,51.7,0.3,40.9,-9.1,33.7C-18.5,26.5,-26,22.9,-28.5,17.1C-31.1,11.3,-28.7,3.3,-33.6,-12.3C-38.5,-28,-50.6,-51.4,-46.2,-58.8C-41.8,-66.3,-20.9,-57.9,-3.7,-53.5C13.6,-49.1,27.1,-48.8,36.5,-42.2Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      <svg
+        className="absolute bottom-[-60px] right-[-30px] w-[300px] h-[300px] opacity-60 z-0"
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="#0a9396"
+          d="M19.5,-33.1C28.7,-24.5,41.8,-24.8,48.7,-19.4C55.7,-13.9,56.5,-2.9,54.1,7.2C51.7,17.2,46.1,26.1,40.2,37.4C34.4,48.7,28.3,62.3,20.7,59.6C13,56.9,3.8,37.8,-10.2,34C-24.1,30.2,-42.7,41.7,-51.1,39.9C-59.4,38.1,-57.5,23,-49.8,13C-42.1,3,-28.7,-2,-22.4,-7.9C-16.1,-13.9,-16.9,-20.7,-14.4,-32.4C-11.8,-44,-5.9,-60.4,-0.4,-59.8C5.2,-59.3,10.4,-41.8,19.5,-33.1Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
       
-
-      <div className="px-6 mt-6 mb-10">
-        <Clientproducts />
+      
+      <div className="px-6 mt-10 relative z-10">
+        < Client_Navbar/>
+        <Outlet />
       </div>
     </div>
   );

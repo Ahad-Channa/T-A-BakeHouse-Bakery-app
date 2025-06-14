@@ -1,59 +1,4 @@
-/*import { useState } from "react";
 
-const ClientCategories = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [categories] = useState([
-    { id: 1, name: "Cakes" },
-    { id: 2, name: "Pastries" },
-    { id: 3, name: "Breads" },
-    { id: 4, name: "Cookies" },
-  ]);
-
-  const filteredCategories = categories.filter((category) =>
-    category.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center">
-      <div className="max-w-4xl w-full bg-white rounded-xl shadow-md p-6">
-        <div className="bg-gray-200 flex flex-col md:flex-row md:justify-between md:items-center gap-4 p-4 mb-6 rounded-lg">
-          <h2 className="text-2xl font-bold">Browse Categories</h2>
-          <input
-            type="text"
-            placeholder="Search category..."
-            className="w-full md:w-64 border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-
-        {filteredCategories.length > 0 ? (
-          <table className="w-full border-collapse">
-            <thead>
-              <tr>
-                <th className="py-2 px-4 border bg-gray-100">#</th>
-                <th className="py-2 px-4 border bg-gray-100">Category</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredCategories.map((category, index) => (
-                <tr key={category.id}>
-                  <td className="text-center border">{index + 1}</td>
-                  <td className="text-center border">{category.name}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p className="text-center text-gray-500 mt-6">No categories found.</p>
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default ClientCategories;
-*/
 import React, { useState } from "react";
 
 const ClientCategories = () => {
@@ -141,7 +86,7 @@ const ClientCategories = () => {
           {visibleCategories.map((cat) => (
             <div
               key={cat.id}
-              className="bg-dpurp border-2 border-bordercolor  rounded-3xl shadow-lg hover:shadow-xl transition-all p-4 flex flex-col items-center justify-center text-center"
+              className="bg-compbg border-2 border-bordercolor  rounded-3xl shadow-lg hover:shadow-xl transition-all p-4 flex flex-col items-center justify-center text-center"
               title={cat.name}
             >
               <img

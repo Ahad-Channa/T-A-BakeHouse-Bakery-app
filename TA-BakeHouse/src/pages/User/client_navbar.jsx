@@ -1,26 +1,31 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Client_Navbar() {
   return (
     <nav className="bg-yellow-500 text-white px-6 py-4 flex justify-between items-center shadow-md">
       <h1 className="text-3xl font-bold tracking-wide">🍰 Sweet Bites</h1>
       
       <div className="flex gap-4">
         <Link 
-          to="/home" 
+          to="/user" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Home
         </Link>
-        <Link 
-          to="/client-products" 
+        <a
+          href="#client-category"
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
-          Products
-        </Link>
+          Categories
+        </a>
+        <a
+          href="#client-products"
+          className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
+        >
+          products
+        </a>
         <Link 
-          to="/cart" 
+          to="/user/cart" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Cart
@@ -37,4 +42,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Client_Navbar;
