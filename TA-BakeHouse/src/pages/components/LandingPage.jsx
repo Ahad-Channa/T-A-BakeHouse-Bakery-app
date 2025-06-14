@@ -5,7 +5,7 @@ import Contactus from "./Contactus";
 
 const LandingPage = () => {
   return (
-    <div className="relative bg-white overflow-hidden min-h-screen z-10 p-10">
+    <div className="top-20 relative bg-white overflow-hidden min-h-screen z-10 p-10">
       <div className="absolute inset-0 z-0">
         <svg
           className="absolute top-[140px] left-1/2 transform -translate-x-1/2 w-[400px] h-[300px] z-0 opacity-40"

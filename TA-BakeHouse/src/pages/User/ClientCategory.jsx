@@ -44,8 +44,8 @@ const ClientCategories = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-4 text-center text-deeppurp">
-      Categories
+      <h2 className="text-5xl font-bold mb-4 text-center text-deeppurp underline decoration-wavy underline-offset-[20px] mb=20">
+      Categories 
       </h2>
 
       {/* Search */}

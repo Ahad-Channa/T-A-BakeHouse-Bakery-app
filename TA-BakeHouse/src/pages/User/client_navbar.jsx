@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Client_Navbar() {
   return (
-    <nav className="bg-yellow-500 text-white px-6 py-4 flex justify-between items-center shadow-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-yellow-500 text-white px-6 py-4 flex justify-between items-center shadow-md">
       <h1 className="text-3xl font-bold tracking-wide">🍰 Sweet Bites</h1>
       
       <div className="flex gap-4">

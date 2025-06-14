@@ -1,6 +1,91 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+
+@keyframes glow-float {
+  0% {
+    text-shadow: 0 0 10px #d3bc61, 0 0 20px #fbbf24, 0 0 30px #f59e0b;
+    transform: translateY(0px);
+  }
+  50% {
+    text-shadow: 0 0 20px #fde68a, 0 0 30px #facc15, 0 0 40px #f59e0b;
+    transform: translateY(-10px);
+  }
+  100% {
+    text-shadow: 0 0 10px #e5c95b, 0 0 20px #fbbf24, 0 0 30px #f59e0b;
+    transform: translateY(0px);
+  }
+}
+
+.animate-glow-float {
+  animation: glow-float 3s ease-in-out infinite;
+}
+
+.custom-glow {
+  color: #763f0cdf;
+  font-family: 'Poppins', sans-serif;
+}
+@keyframes text-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-fade {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-slow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-text-rise {
+  animation: text-rise 1.4s ease-out forwards;
+}
+
+.animate-slide-fade {
+  animation: slide-fade 1.5s ease-out forwards;
+}
+
+.animate-fade-in-slow {
+  animation: fade-in-slow 2s ease-in-out;
+}
+
+.glow-heading {
+  text-shadow: 0 0 5px #facc15, 0 0 15px #fbbf24, 0 0 25px #f59e0b;
+}
+
+
+
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

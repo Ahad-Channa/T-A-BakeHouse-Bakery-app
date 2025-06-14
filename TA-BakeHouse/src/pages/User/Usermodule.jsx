@@ -6,9 +6,10 @@ import Client_Navbar from "./client_navbar";
 
 export const Usermodule = () => {
   return (
-    <div className="relative bg-backg overflow-hidden ">
+   
+       <div className="relative bg-backg overflow-hidden ">
       <svg
-        className="absolute top-[-90px] left-[-90px] w-[240px] h-[240px] opacity-100 z-0"
+        className=" animate-float  absolute top-[-90px] left-[-90px] w-[240px] h-[240px] opacity-100 z-0"
         viewBox="0 0 200 200"
       >
         <path
@@ -19,7 +20,7 @@ export const Usermodule = () => {
       </svg>
 
       <svg
-        className="absolute top-6 left-1/2 w-[400px] h-[350px] opacity-70 z-0 -translate-x-1/2"
+        className=" animate-float  absolute top-6 left-1/2 w-[400px] h-[350px] opacity-70 z-0 -translate-x-1/2"
         viewBox="0 0 200 200"
       >
         <path
@@ -98,9 +99,12 @@ export const Usermodule = () => {
       
       
       <div className="px-6 mt-10 relative z-10">
-        < Client_Navbar/>
+       < Client_Navbar/>
         <Outlet />
       </div>
     </div>
+
+   
+   
   );
 };

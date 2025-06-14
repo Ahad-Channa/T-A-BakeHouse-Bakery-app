@@ -1,13 +1,20 @@
-import React from 'react'
-
+import React from "react";
+import { motion } from "framer-motion";
 const Welcome = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-40 gap-6 relative z-10">
+    <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-40  relative z-10">
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="bg-white shadow-lg rounded-xl p-6"
+      >
         <div className="bg-white/50 backdrop-blur-md p-8 rounded-2xl max-w-2xl shadow-xl">
           <h2 className="text-3xl font-bold text-amber-600 mb-2">
             Heyyy USERNAME
           </h2>
-          <h2 className="text-3xl font-bold text-red-800 mb-4">
+          <h2 className="text-3xl font-bold text-red-800 mb-4 text-center">
             WELCOME TO THE T&A BAKEHOUSE
           </h2>
           <h3 className="text-2xl text-orange-500 mb-2">
@@ -20,16 +27,19 @@ const Welcome = () => {
             and treat yourself today!
           </p>
         </div>
-        <div
-          className="w-[500px] h-[350px] bg-cover bg-center shadow-lg"
-          style={{
-            backgroundImage:
-              "url('/images/ChatGPT_Image_Jun_13__2025__11_03_50_PM-removebg-preview.png')",
-          }}
-        ></div>
-      </div>
-  )
-}
+      </motion.div>
+      
+      <motion.div
+        className="w-[500px] h-[350px] bg-cover bg-center shadow-lg rounded-2xl "
+        style={{
+          backgroundImage:
+            "url('/images/ChatGPT_Image_Jun_13__2025__11_03_50_PM-removebg-preview.png')",
+        }}
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      />
+    </div>
+  );
+};
 
-
-export  default Welcome;
+export default Welcome;

@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+
 export default {
   content: [
     "./index.html",
@@ -13,7 +15,9 @@ export default {
         deeppurp: '#832161',
         bordercolor: '#b88b4a',
         new : '#e9ecef',
-        compobdr: '#6c757d'
+        compobdr: '#6c757d',
+        brown: '#7f5539',
+        orang: '#da627d',
       },
     },
   },

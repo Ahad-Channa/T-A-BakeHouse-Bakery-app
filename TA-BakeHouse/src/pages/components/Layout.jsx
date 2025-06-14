@@ -12,7 +12,7 @@ const Layout = () => {
   return (
     <>
       {!hideNavbar && <Navbar />}     
-      <div className="p-4">
+      <div className=" ">
         <Outlet />
       </div>
     </>
