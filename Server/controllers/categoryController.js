@@ -5,14 +5,17 @@ export const createCategory = async (req, res) => {
   try {
     const { name, description } = req.body;
 
-    // Check if category exists
+    // Check if category already exists
     const existing = await Category.findOne({ name });
     if (existing) {
       return res.status(400).json({ message: 'Category already exists' });
     }
 
-    const category = new Category({ name, description });
+    const image = req.file ? req.file.filename : null;
+
+    const category = new Category({ name, description, image });
     await category.save();
+
     res.status(201).json({ message: 'Category created', category });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
@@ -45,11 +48,19 @@ export const getCategoryById = async (req, res) => {
 export const updateCategory = async (req, res) => {
   try {
     const { name, description } = req.body;
+
+    const updateFields = { name, description };
+
+    if (req.file) {
+      updateFields.image = req.file.filename;
+    }
+
     const updated = await Category.findByIdAndUpdate(
       req.params.id,
-      { name, description },
+      updateFields,
       { new: true }
     );
+
     if (!updated) return res.status(404).json({ message: 'Category not found' });
 
     res.status(200).json({ message: 'Category updated', category: updated });
@@ -58,7 +69,7 @@ export const updateCategory = async (req, res) => {
   }
 };
 
-// Delete Category
+// ✅ Delete Category
 export const deleteCategory = async (req, res) => {
   try {
     const deleted = await Category.findByIdAndDelete(req.params.id);

@@ -19,6 +19,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use("/api/products", productRoutes);
+app.use('/uploads/categories', express.static('uploads/categories'));
+
 app.get('/', (req, res) => {
   res.send('API is running...');
 });

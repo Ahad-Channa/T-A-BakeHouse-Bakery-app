@@ -1,27 +1,22 @@
+// 📁 routes/categoryRoutes.js
 import express from 'express';
 import {
   createCategory,
   getAllCategories,
   getCategoryById,
   updateCategory,
-  deleteCategory
+  deleteCategory,
 } from '../controllers/categoryController.js';
+
+import upload from '../middleware/uploadMiddleware.js';
 
 const router = express.Router();
 
-// POST - Create category
-router.post('/', createCategory);
+router.post('/', upload.single('image'), createCategory);
+router.put('/:id', upload.single('image'), updateCategory);
 
-// GET - All categories
 router.get('/', getAllCategories);
-
-// GET - Single category by ID
 router.get('/:id', getCategoryById);
-
-// PUT - Update category by ID
-router.put('/:id', updateCategory);
-
-// DELETE - Delete category by ID
 router.delete('/:id', deleteCategory);
 
 export default router;
