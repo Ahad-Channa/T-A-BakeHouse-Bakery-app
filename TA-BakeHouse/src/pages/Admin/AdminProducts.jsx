@@ -159,12 +159,12 @@ const AdminProducts = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto bg-white rounded-xl shadow-md p-6">
-      <div className="flex justify-between items-center mb-6 mt-12">
-        <h2 className="text-2xl font-bold">All Products</h2>
+    <div className="w-full max-w-7xl mx-auto bg-white rounded-xl shadow-md p-6 my-8 border border-2 border-borderbrown animate-fadeIn">
+      <div className="flex justify-between  rounded-lg items-center mb-6 mt-12 bg-gray-200 ">
+        <h2 className="text-2xl font-bold py-2 px-4">All Products</h2>
         <button
           onClick={() => nav("/admin/add-product")}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-10 my-4 w-[200px]"
         >
           + Add Product
         </button>
@@ -236,7 +236,7 @@ const AdminProducts = () => {
       </table>
 
       <button
-        className="bg-gray-300 py-2 px-4 mt-6 rounded hover:bg-gray-400"
+        className="bg-red-400 py-2 px-4 mt-6 rounded hover:bg-red-500 w-[150px] "
         onClick={() => nav("/admin")}
       >
         Back

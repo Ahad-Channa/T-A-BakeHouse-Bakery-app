@@ -32,7 +32,7 @@ const AdminProducts = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center">
+    <div className="min-h-screen bg-gray-100 py-10 px-4 flex justify-center animate-fadeIn">
       <div className="w-full max-w-6xl bg-slate-200 rounded-lg p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">All Products</h2>

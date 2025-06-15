@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Addproducts = () => {
@@ -100,3 +100,4 @@ const Addproducts = () => {
 };
 
 export default Addproducts;
+*/

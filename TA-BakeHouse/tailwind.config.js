@@ -1,27 +1,39 @@
 /** @type {import('tailwindcss').Config} */
 
-
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        softpink: '#e4c1f9',
-        backg: '#d9dcd6',
-        compbg: '#faf3dd',
-        deeppurp: '#832161',
-        bordercolor: '#b88b4a',
-        new : '#e9ecef',
-        compobdr: '#6c757d',
-        brown: '#7f5539',
-        orang: '#da627d',
+        softpink: "#e4c1f9",
+        backg: "#d9dcd6",
+        compbg: "#faf3dd",
+        deeppurp: "#832161",
+        bordercolor: "#b88b4a",
+        new: "#e9ecef",
+        compobdr: "#6c757d",
+        brown: "#7f5539",
+        orang: "#da627d",
+        adminbg: "#f0ead2",
+        welcome: "#ba181b",
+        bgbluehover: "#0a9396",
+        bgblue: "#2a9d8f",
+        bgorange: "#e85d04",
+        bgpurp: "#dd2d4a",
+        bgpurphover: "#c9184a",
+        bggreen: '#80b918',
+        borderbrown: '#d4a373'
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(50px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.8s ease-out forwards",
       },
     },
   },
   plugins: [],
-}
-
-
+};

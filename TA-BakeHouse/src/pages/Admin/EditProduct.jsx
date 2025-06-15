@@ -65,7 +65,8 @@ const EditProduct = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-12 bg-white p-6 rounded shadow">
+    <div className="h-screen flex items-center justify-center bg-adminbg animate-fadeIn">
+       <div className="w-[700px] bg-white shadow-lg rounded-xl p-8 border border-2 border-borderbrown ">
       <h2 className="text-2xl font-bold mb-6">Edit Product</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -120,23 +121,25 @@ const EditProduct = () => {
           <label className="font-semibold">In Stock</label>
         </div>
 
-        <div className="flex space-x-4">
+        <div className="flex justify-around">
           <button
             type="submit"
-            className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+            className="bg-green-400 font-bold px-6 py-2 rounded hover:bg-green-500"
           >
             Update
           </button>
           <button
             type="button"
-            onClick={() => nav("/admin/products")}
-            className="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400"
+            onClick={() => nav("/admin/admin-products")}
+            className="bg-red-400 px-6 py-2 font-bold rounded hover:bg-red-500"
           >
             Cancel
           </button>
         </div>
       </form>
     </div>
+    </div>
+   
   );
 };
 

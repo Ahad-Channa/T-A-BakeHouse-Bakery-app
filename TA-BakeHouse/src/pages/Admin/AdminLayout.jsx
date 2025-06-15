@@ -1,9 +1,12 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 
+
+
 function AdminLayout() {
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex animate-fadeIn">
+      
       {/* Sidebar */}
       <aside className="w-64 bg-gray-800 text-white p-4 space-y-4">
         <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
@@ -21,7 +24,8 @@ function AdminLayout() {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 bg-gray-100 p-6">
+      <main className="flex-1 bg-adminbg p-5 flex justify-center">
+        
         <Outlet />
       </main>
     </div>

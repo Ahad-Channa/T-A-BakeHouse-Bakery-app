@@ -34,8 +34,8 @@ const EditCategory = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8">
+    <div className="h-screen flex items-center justify-center bg-adminbg animate-fadeIn">
+      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8 border border-2 border-borderbrown">
         <h2 className="text-2xl font-bold mb-4">Edit Category</h2>
         <form onSubmit={handleUpdate}>
           <input
@@ -46,10 +46,10 @@ const EditCategory = () => {
             className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 mb-4"
             required
           />
-          <div className="flex justify-between">
+          <div className="flex justify-around">
             <button
               type="submit"
-              className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
+              className=" w-[150px] bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
             >
               Update
             </button>
@@ -57,7 +57,7 @@ const EditCategory = () => {
             <button
               type="button"
              
-              className="bg-gray-300 py-2 px-4 rounded-lg hover:bg-gray-400"
+              className="w-[150px] bg-red-400 py-2 px-4 rounded-lg hover:bg-red-500"
             >
               Cancel
             </button>

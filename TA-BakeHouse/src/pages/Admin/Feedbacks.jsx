@@ -9,9 +9,9 @@ import { Link} from 'react-router-dom';
  
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-4xl w-full bg-white rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-bold bg-lime-200 m-3 text-center p-2 rounded-md">
+    <div className="min-h-screen flex items-center justify-center bg-adminbg py-12 animate-fadeIn" >
+      <div className="w-auto min-w-[1000px] bg-white rounded-xl shadow-md p-8 border border-2 border-borderbrown">
+        <h2 className="text-2xl font-bold bg-sky-300 m-3 text-center p-2 rounded-md">
           User Feedbacks
         </h2>
         <table className="w-full border-collapse">
@@ -37,7 +37,7 @@ import { Link} from 'react-router-dom';
         </table>
         <div className='flex justify-center my-3 '>
         <Link to="/admin">
-         <button className="bg-gray-400 rounded-lg py-2 px-4 " >Back</button>
+         <button className="w-[150px] bg-red-400 hover:bg-red-500 font-bold px-5 py-2 m-5 rounded-lg  " >Back</button>
         </Link>
            
         </div>

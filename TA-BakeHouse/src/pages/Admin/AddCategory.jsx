@@ -22,9 +22,9 @@ const AddCategory = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8">
-        <h2 className="font-bold bg-sky-100 rounded-lg my-3 py-2 px-4">
+    <div className="h-screen flex items-center justify-center bg-adminbg animate-fadeIn ">
+      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8 border border-2 border-borderbrown">
+        <h2 className="font-bold bg-sky-300  rounded-lg my-3 py-4 px-4">
           Add new category
         </h2>
         <form onSubmit={handleSubmit}>
@@ -34,16 +34,16 @@ const AddCategory = () => {
               placeholder="Enter category here"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+              className="w-full border border-gray-400 rounded-lg px-4 py-4  m-4 focus:outline-none focus:border-blue-500"
             />
-          </div>
+          </div> 
 
-            <div className="flex justify-between  ">
+            <div className="flex justify-around  ">
              
-              <button type="submit" className="bg-gray-200 py-2 px-4 m-4 rounded-lg" >Add</button>
+              <button type="submit" className="w-[150px] bg-green-400 hover:bg-green-500  py-2 font-bold px-4 m-4 rounded-lg" >Add</button>
               
               <Link to="/admin/admin-category">
-              <button className="bg-gray-200 py-2 px-4 m-4 rounded-lg">Cancel</button>
+              <button className=" w-[150px] bg-red-400 hover:bg-red-500 py-2 px-4 m-4 rounded-lg font-bold">Cancel</button>
               </Link>
               
             </div>

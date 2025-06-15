@@ -1,11 +1,9 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
- 
 
   // Fetch categories from backend on component mount
   useEffect(() => {
@@ -32,23 +30,23 @@ const AdminCategories = () => {
   };
 
   return (
-  
-    
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 m-50">
-        <div className="bg-gray-200 flex justify-between items-center p-4 m-4 rounded-lg ">
-          <h2 className="text-2xl font-bold">All categories</h2>
-          <Link to="/admin/add-category">
-          <button className="font-bold bg-sky-200  rounded-lg py-2 px-4 hover:bg-sky-300 " > + add new category</button>
-          </Link>
-          
-        </div>
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 my-12 border border-2 border-borderbrown animate-fadeIn">
+      <div className="bg-gray-300 flex justify-between items-center p-4 m-4 rounded-lg ">
+        <h2 className="text-2xl font-bold">All categories</h2>
+        <Link to="/admin/add-category">
+          <button className="font-bold bg-sky-300  rounded-lg py-2 px-4 hover:bg-sky-400 ">
+            {" "}
+            + add new category
+          </button>
+        </Link>
+      </div>
 
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className="py-2 px-4 border bg-gray-100">#ID</th>
-            <th className="py-2 px-4 border bg-gray-100">Category</th>
-            <th className="py-2 px-4 border bg-gray-100">Actions</th>
+            <th className="py-2 px-4 border bg-gray-200">#ID</th>
+            <th className="py-2 px-4 border bg-gray-200">Category</th>
+            <th className="py-2 px-4 border bg-gray-200">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -57,35 +55,29 @@ const AdminCategories = () => {
               <td className="text-center border">{index + 1}</td>
               <td className="text-center border">{category.name}</td>
               <td className="text-center border">
-                
-               <Link to={`/admin/edit-category/${category._id}`}>
-               <button
-                  className="bg-sky-200 py-2 px-4 m-2 rounded-lg"
-                 
-                >
-                  Edit
-                </button>
-               </Link> 
+                <Link to={`/admin/edit-category/${category._id}`}>
+                  <button className="bg-sky-300 hover:bg-sky-400 py-2 px-4 m-2 rounded-lg">
+                    Edit
+                  </button>
+                </Link>
 
-               
                 <button
-                  className="bg-red-400 py-2 px-4 m-2 rounded-lg text-white hover:bg-red-500"
+                  className="bg-red-500 hover:bg-red-600 py-2 px-4 m-2 rounded-lg text-white hover:bg-red-500"
                   onClick={() => deleteCategory(category._id)}
                 >
                   Delete
                 </button>
-               
-
-               
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <Link to="/Admin"> 
-         <button className="bg-sky-400 py-2 px-4 rounded-lg m-4 w-20">Back </button>
-        </Link>
+      <Link to="/Admin">
+        <button className="bg-sky-400 hover:bg-sky-500 py-2 px-4 rounded-lg m-4 w-20">
+          Back{" "}
+        </button>
+      </Link>
     </div>
   );
 };

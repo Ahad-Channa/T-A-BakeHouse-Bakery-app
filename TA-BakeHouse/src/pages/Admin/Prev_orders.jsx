@@ -16,9 +16,9 @@ const Prev_orders = () => {
   
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="max-w-5xl w-full bg-white rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-bold bg-orange-200 m-3 text-center p-2 rounded-md">
+    <div className="min-h-screen flex items-center justify-center bg-adminbg py-12 animate-fadeIn">
+      <div className="w-auto min-w-[1000px] bg-white rounded-xl shadow-md p-8 border border-2 border-borderbrown">
+        <h2 className="text-2xl font-bold bg-orange-300 m-3 text-center p-2 rounded-md">
           Previous Orders - {filteredStatus.charAt(0).toUpperCase() + filteredStatus.slice(1)}
         </h2>
 
@@ -26,7 +26,7 @@ const Prev_orders = () => {
           <button
             onClick={() => setFilteredStatus('delivered')}
             className={`py-2 px-4 rounded-lg font-bold ${
-              filteredStatus === 'delivered' ? 'bg-green-300' : 'bg-gray-200'
+              filteredStatus === 'delivered' ? 'bg-green-500' : 'bg-gray-300'
             }`}
           >
             Delivered Orders
@@ -34,7 +34,7 @@ const Prev_orders = () => {
           <button
             onClick={() => setFilteredStatus('confirmed')}
             className={`py-2 px-4 rounded-lg font-bold ${
-              filteredStatus === 'confirmed' ? 'bg-blue-300' : 'bg-gray-200'
+              filteredStatus === 'confirmed' ? 'bg-blue-500' : 'bg-gray-300'
             }`}
           >
             Confirmed Orders
@@ -42,7 +42,7 @@ const Prev_orders = () => {
           <button
             onClick={() => setFilteredStatus('rejected')}
             className={`py-2 px-4 rounded-lg font-bold ${
-              filteredStatus === 'rejected' ? 'bg-red-300' : 'bg-gray-200'
+              filteredStatus === 'rejected' ? 'bg-red-500' : 'bg-gray-300'
             }`}
           >
             Rejected Orders
@@ -79,7 +79,7 @@ const Prev_orders = () => {
         </table>
 
         <Link to="/admin">
-        <button className='bg-gray-400 py-2 px-4 m-5 rounded-lg  ' >Back</button>
+        <button className='w-[150px] bg-red-400 hover:bg-red-500 font-bold px-5 py-2 m-5 rounded-lg  ' >Back</button>
         </Link>
         
       </div>

@@ -10,16 +10,16 @@ import { Link } from 'react-router-dom';
   ];
  
   return (
-    < div >
-     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 mt-50">
-      <h2 className='text-2xl font-bold bg-sky-200 m-3 text-center '>Incoming orders</h2>
+    < div className="min-h-screen flex items-center justify-center bg-adminbg py-12 animate-fadeIn" >
+     <div className="w-auto min-w-[1000px] bg-white rounded-xl shadow-md p-8 border border-2 border-borderbrown">
+      <h2 className='text-3xl font-bold bg-sky-200 m-3 text-center  rounded-lg w-full py-2 px-4'>Incoming orders</h2>
       <table className='w-full border-collapse'>
         <thead>
-          <tr className='bg-gray-200'>
+          <tr className='bg-gray-300'>
             <th className='py-2 px-4 border'>OrderID</th>
             <th className='py-2 px-4 border'>User</th>
             <th className='py-2 px-4 border'> Date</th>
-            <th className='py-2 px-4 border'>view details </th>
+            <th className='py-2 px-4 border'>View details </th>
           </tr>
           </thead>
           <tbody>
@@ -30,7 +30,7 @@ import { Link } from 'react-router-dom';
               <td className='py-2 px-4 border text-center'>{ord.date}</td>
               <td className='py-2 px-4 border text-center'>
                 <Link to="/admin/order-details/:orderId">
-                <button className='bg-gray-100 rounded-lg py-2 px-4' >View</button>
+                <button className='font-bold bg-green-400 hover:bg-green-500 rounded-lg py-2 px-4' >View</button>
                 </Link>
                 </td>
             </tr>
@@ -39,9 +39,9 @@ import { Link } from 'react-router-dom';
            
           </tbody>
       </table>
-      <div className='flex justify-center my-3'>
+      <div className='flex justify-center my-4 '>
         <Link to="/admin">
-         <button className="bg-gray-400 rounded-lg py-2 px-4" >Back</button>
+         <button className="font-bold  w-[150px] bg-red-500 hover:bg-red-600 rounded-lg py-2 px-4" >Back</button>
         </Link>
      
       </div>

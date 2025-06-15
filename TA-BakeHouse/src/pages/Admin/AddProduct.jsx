@@ -37,8 +37,8 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8">
+    <div className="h-screen flex items-center justify-center bg-adminbg animate-fadeIn">
+      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8 border border-2 border-borderbrown ">
         <h2 className="text-xl font-bold mb-4">Add New Product</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -85,14 +85,14 @@ const AddProduct = () => {
             ))}
           </select>
 
-          <div className="flex justify-between">
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+          <div className="flex justify-around">
+            <button type="submit" className="w-[150px] bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
               Add
             </button>
             <button
               type="button"
               onClick={() => nav("/admin/admin-products")}
-              className="bg-gray-200 px-4 py-2 rounded"
+              className="w-[150px] bg-red-400 hover:bg-red-500 px-4 py-2 rounded"
             >
               Cancel
             </button>

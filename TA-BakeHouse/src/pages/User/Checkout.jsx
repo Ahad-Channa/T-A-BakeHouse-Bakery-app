@@ -34,14 +34,14 @@ const Checkout = () => {
 
   setTimeout(() => {
     setShowPopup(false);
-    nav("/");
+    nav("/user");
   }, 3000);
 };
 
 
   return (
 
-    <div className="max-w-3xl w-full mx-auto p-6 m-[150px] bg-new rounded-xl border rounded-xl border-2 border-compobdr">
+    <div className="max-w-3xl w-full mx-auto p-6 m-[150px] bg-new rounded-xl border rounded-xl border-2 border-compobdr animate-fadeIn">
       <h2 className="text-2xl font-bold mb-6">Checkout</h2>
 
       <div className="mb-6 space-y-4">
