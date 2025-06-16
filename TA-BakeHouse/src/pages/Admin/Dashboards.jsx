@@ -1,51 +1,45 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
  const Dashboards = () => {
-  const nav = useNavigate();
-
-  function handler(kuchbhi) {
-    switch (kuchbhi) {
-      case "category":
-        nav("/admin/admin-category");
-        break;
-      case "products":
-        nav("/admin/admin-products");
-        break;
-      case "feedbacks":
-        nav("/admin/feedbacks");
-        break;
-      case "inc_orders":
-        nav("/admin/incoming-orders");
-        break;
-      case "prev_orders":
-        nav("/admin/previous-orders");
-        break;
-    }
-  }
+  
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="w-[800px] min-h-[600px] grid grid-cols-2 gap-4 p-20 bg-slate-200 ">
-          <button className="bg-rose-400 rounded-lg font-bold hover:bg-rose-500 py-2 px-4" onClick={()=>handler("category")}>
-            view Categories
-          </button>
-          <button className="bg-fuchsia-500 font-bold hover:bg-fuchsia-600 py-2 px-4 rounded-lg" onClick={()=>handler("products")}>
-            view Products
-          </button>
+      <div className="w-[1100px] grid grid-cols-2 m-5 gap-x-10 gap-y-10 p-5 bg-adminbg rounded-xl animate-fadeIn justify-items-center">
+        <h2 className="text-5xl text-welcome my-10 font-extrabold col-span-2 text-center transition-transform duration-700 hover:scale-105 drop-shadow-[0_0_10px_#f78764]">
+          Hello, Admin
+        </h2>
 
-          <button className="bg-violet-300 font-bold hover:bg-violet-500 py-2 px-4 rounded-lg" onClick={()=>handler("inc_orders")}>
-            view Incoming orders
+        <Link to="admin-category">
+          <button className="bg-bgpink rounded-lg text-xl font-bold hover:bg-bgpinkhover py-2 px-4 w-[350px] h-[160px] transition-all duration-300 hover:scale-105">
+            View Categories
           </button>
-          <button className="bg-orange-300 font-bold hover:bg-orange-500 py-2 px-4 rounded-lg" onClick={()=>handler("prev_orders")}>
-            view previous orders
+        </Link>
+
+        <Link to="admin-products">
+          <button className="bg-fuchsia-400 text-xl font-bold hover:bg-fuchsia-500 py-2 px-4 rounded-lg w-[350px] h-[160px] transition-all duration-300 hover:scale-105">
+            View Products
           </button>
-          <button className="bg-lime-300 font-bold hover:bg-lime-500 py-2 px-4 rounded-lg" onClick={()=>handler("feedbacks")}>
-            view Feedbacks
+        </Link>
+
+        <Link to="incoming-orders">
+          <button className="bg-bggreen text-xl font-bold hover:bg-bggreenhover py-2 px-4 rounded-lg w-[350px] h-[160px] transition-all duration-300 hover:scale-105">
+            View Incoming orders
           </button>
-          
-        </div>
+        </Link>
+
+        <Link to="previous-orders">
+          <button className="bg-orange-400 text-xl font-bold hover:bg-bgorangehover py-2 px-4 rounded-lg w-[350px] h-[160px] transition-all duration-300 hover:scale-105">
+            View previous orders
+          </button>
+        </Link>
+
+        <Link to="feedbacks" className="col-span-2 mx-auto">
+          <button className="bg-lime-300 text-xl font-bold hover:bg-lime-400 py-2 px-4 rounded-lg w-[350px] h-[160px] transition-all duration-300 hover:scale-105">
+            View Feedbacks
+          </button>
+        </Link>
       </div>
     </>
   );

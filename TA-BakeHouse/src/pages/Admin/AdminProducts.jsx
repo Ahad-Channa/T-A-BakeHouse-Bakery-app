@@ -67,12 +67,12 @@ const AdminProducts = () => {
   };
 
   return (
-    <div className="p-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Product Management</h1>
+    <div className="w-full max-w-7xl mx-auto bg-white rounded-xl shadow-md p-6 my-8  animate-fadeIn">
+      <div className="flex justify-between  rounded-lg items-center mb-6 mt-12">
+        <h1 className="text-2xl font-bold py-2 px-4">Product Management</h1>
         <button
           onClick={() => nav("/admin/add-product")}
-          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mr-10 my-4 w-[200px]"
         >
           Add Product
         </button>
@@ -155,6 +155,12 @@ const AdminProducts = () => {
           </tbody>
         </table>
       </div>
+      <button
+        className="bg-red-400 py-2 px-4 mt-6 rounded hover:bg-red-500 w-[150px] "
+        onClick={() => nav("/admin")}
+      >
+        Back
+      </button>
     </div>
   );
 };

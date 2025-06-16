@@ -53,8 +53,8 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8">
+     <div className="w-[900px] h-[600px] flex items-center rounded-xl m-20 justify-center animate-fadeIn">
+      <div className="w-[800px] bg-white shadow-lg rounded-xl p-8  ">
         <h2 className="text-xl font-bold mb-4">Add New Product</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <input

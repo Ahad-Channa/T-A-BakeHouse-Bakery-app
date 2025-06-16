@@ -45,8 +45,8 @@ const EditCategory = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8">
+    <div className=" flex items-center justify-center  animate-fadeIn">
+      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8 ">
         <h2 className="text-2xl font-bold mb-4">Edit Category</h2>
         <form onSubmit={handleUpdate} encType="multipart/form-data">
           <input
