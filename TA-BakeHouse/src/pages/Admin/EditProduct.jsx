@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,13 +9,13 @@ const EditProduct = () => {
   const [product, setProduct] = useState({
     name: "",
     price: "",
-    inStock: true,
     category: "",
+    inStock: true,
+    image: null,
   });
 
   const [categories, setCategories] = useState([]);
 
-  // Fetch product and categories
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -44,20 +45,30 @@ const EditProduct = () => {
     fetchCategories();
   }, [id]);
 
-  // Handle input changes
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, checked, files } = e.target;
     setProduct((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : type === "file" ? files[0] : value,
     }));
   };
 
-  // Update product
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/products/${id}`, product);
+      const updatedProduct = new FormData();
+      updatedProduct.append("name", product.name);
+      updatedProduct.append("price", product.price);
+      updatedProduct.append("category", product.category);
+      updatedProduct.append("inStock", product.inStock);
+      if (product.image) {
+        updatedProduct.append("image", product.image);
+      }
+
+      await axios.put(`http://localhost:5000/api/products/${id}`, updatedProduct, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
       nav("/admin/admin-products");
     } catch (err) {
       console.error("Failed to update product", err);
@@ -67,7 +78,7 @@ const EditProduct = () => {
   return (
     <div className="max-w-2xl mx-auto mt-12 bg-white p-6 rounded shadow">
       <h2 className="text-2xl font-bold mb-6">Edit Product</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-4">
         <div>
           <label className="block font-semibold">Product Name:</label>
           <input
@@ -79,7 +90,6 @@ const EditProduct = () => {
             className="w-full border px-3 py-2 rounded"
           />
         </div>
-
         <div>
           <label className="block font-semibold">Price:</label>
           <input
@@ -91,7 +101,6 @@ const EditProduct = () => {
             className="w-full border px-3 py-2 rounded"
           />
         </div>
-
         <div>
           <label className="block font-semibold">Category:</label>
           <select
@@ -109,7 +118,6 @@ const EditProduct = () => {
             ))}
           </select>
         </div>
-
         <div className="flex items-center space-x-2">
           <input
             type="checkbox"
@@ -119,7 +127,16 @@ const EditProduct = () => {
           />
           <label className="font-semibold">In Stock</label>
         </div>
-
+        <div>
+          <label className="block font-semibold">Product Image:</label>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleChange}
+            className="w-full"
+          />
+        </div>
         <div className="flex space-x-4">
           <button
             type="submit"

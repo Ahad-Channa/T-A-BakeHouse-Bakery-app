@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -9,10 +10,10 @@ const AddProduct = () => {
     description: "",
     price: "",
     category: "",
+    image: null,
   });
   const [categories, setCategories] = useState([]);
 
-  // Fetch categories from backend
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/categories")
@@ -20,15 +21,30 @@ const AddProduct = () => {
       .catch((err) => console.error("Failed to fetch categories", err));
   }, []);
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    if (e.target.name === "image") {
+      setFormData({ ...formData, image: e.target.files[0] });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send product data to backend
-      await axios.post("http://localhost:5000/api/products", formData);
-      
+      const productData = new FormData();
+      productData.append("name", formData.name);
+      productData.append("description", formData.description);
+      productData.append("price", formData.price);
+      productData.append("category", formData.category);
+      if (formData.image) {
+        productData.append("image", formData.image);
+      }
+
+      await axios.post("http://localhost:5000/api/products", productData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
       nav("/admin/admin-products");
     } catch (err) {
       console.error("Failed to add product", err);
@@ -40,7 +56,7 @@ const AddProduct = () => {
     <div className="h-screen flex items-center justify-center bg-gray-100">
       <div className="w-[700px] bg-white shadow-lg rounded-xl p-8">
         <h2 className="text-xl font-bold mb-4">Add New Product</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
           <input
             type="text"
             name="name"
@@ -50,7 +66,6 @@ const AddProduct = () => {
             required
             className="w-full mb-4 border border-gray-300 px-4 py-2 rounded-lg"
           />
-
           <textarea
             name="description"
             placeholder="Description"
@@ -59,7 +74,6 @@ const AddProduct = () => {
             required
             className="w-full mb-4 border border-gray-300 px-4 py-2 rounded-lg"
           />
-
           <input
             type="number"
             name="price"
@@ -69,7 +83,6 @@ const AddProduct = () => {
             required
             className="w-full mb-4 border border-gray-300 px-4 py-2 rounded-lg"
           />
-
           <select
             name="category"
             value={formData.category}
@@ -84,6 +97,14 @@ const AddProduct = () => {
               </option>
             ))}
           </select>
+
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleChange}
+            className="w-full mb-4"
+          />
 
           <div className="flex justify-between">
             <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">

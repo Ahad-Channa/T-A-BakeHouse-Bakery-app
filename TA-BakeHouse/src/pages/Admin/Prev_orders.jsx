@@ -1,23 +1,3 @@
-/*import React from "react";
-
-export const Prev_orders = () => {
-  return (
-    <div className="w-full">
-      <div className="flex justify-between">
-        <button className="py-2 px-4 bg-emerald-200 hover:bhg-emerald-400 ">
-          View Rejected
-        </button>
-        <button className="py-2 px-4 bg-yellow-200 hover:bhg-yellow-400 ">
-          View Confirmed
-        </button>
-        <button className="py-2 px-4 bg-cyan-200 hover:bhg-cyan-400 ">
-          View Delivered
-        </button>
-      </div>
-    </div>
-  );
-};
-*/
 
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
