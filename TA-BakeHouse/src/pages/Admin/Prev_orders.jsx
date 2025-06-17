@@ -1,5 +1,5 @@
 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const Prev_orders = () => {
@@ -7,19 +7,19 @@ const Prev_orders = () => {
     { id: '101', user: 'Tasmia', date: '2025-05-15', total: 1200, status: 'delivered' },
     { id: '102', user: 'Ahad', date: '2025-05-10', total: 850, status: 'confirmed' },
     { id: '103', user: 'Koebhi', date: '2025-04-28', total: 600, status: 'rejected' },
-    { id: '104', user: 'Sarah', date: '2025-04-20', total: 950, status: 'delivered' },
-    { id: '105', user: 'Areeb', date: '2025-04-15', total: 720, status: 'confirmed' },
+    { id: '104', user: 'person', date: '2025-04-20', total: 950, status: 'delivered' },
+    { id: '105', user: 'kuchbhi', date: '2025-04-15', total: 720, status: 'confirmed' },
   ];
 
   const [filteredStatus, setFilteredStatus] = useState('delivered');
 
   const filteredOrders = allOrders.filter(order => order.status === filteredStatus);
-  const nav=useNavigate();
+
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="max-w-5xl w-full bg-white rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-bold bg-orange-200 m-3 text-center p-2 rounded-md">
+    <div className="min-h-screen flex items-center justify-center  py-12 animate-fadeIn">
+      <div className="w-auto min-w-[1000px] bg-white rounded-xl shadow-md p-8 ">
+        <h2 className="text-2xl font-bold bg-orange-300 m-3 text-center p-2 rounded-md">
           Previous Orders - {filteredStatus.charAt(0).toUpperCase() + filteredStatus.slice(1)}
         </h2>
 
@@ -78,7 +78,10 @@ const Prev_orders = () => {
             )}
           </tbody>
         </table>
-        <button className='bg-gray-400 py-2 px-4 m-5 rounded-lg  ' onClick={()=>nav("/dashboard") }>Back</button>
+       <Link to="/admin">
+        <button className='w-[150px] bg-red-400 hover:bg-red-500 font-bold px-5 py-2 m-5 rounded-lg  ' >Back</button>
+        </Link>
+        
       </div>
       
     </div>

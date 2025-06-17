@@ -76,7 +76,8 @@ const EditProduct = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-12 bg-white p-6 rounded shadow">
+   <div className="h-screen flex items-center justify-center animate-fadeIn">
+       <div className="w-[700px] bg-white shadow-lg rounded-xl p-8  ">
       <h2 className="text-2xl font-bold mb-6">Edit Product</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-4">
         <div>
@@ -153,6 +154,7 @@ const EditProduct = () => {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

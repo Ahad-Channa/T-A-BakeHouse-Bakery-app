@@ -1,46 +1,4 @@
-// import React from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
-// import { useFormik } from 'formik';
-// import * as Yup from 'yup';
-// import axios from 'axios';
 
-// function Register() {
-//   const navigate = useNavigate();
-
-//   const formik = useFormik({
-//     initialValues: {
-//       name: '',
-//       email: '',
-//       password: '',
-//     },
-//     validationSchema: Yup.object({
-//       name: Yup.string().required('Name is required'),
-//       email: Yup.string().email('Invalid email').required('Email is required'),
-//       password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
-//     }),
-//     onSubmit: async (values, { setSubmitting, setErrors }) => {
-//       try {
-//         const res = await axios.post('http://localhost:5000/api/auth/register', {
-//           ...values,
-//           role: 'user', // always register as user
-//         });
-//         localStorage.setItem('token', res.data.token); // save token
-//         navigate('/'); // redirect to home
-//       } catch (err) {
-//         console.error(err);
-//         setErrors({ email: 'Registration failed. Try another email.' });
-//       } finally {
-//         setSubmitting(false);
-//       }
-//     },
-//   });
-
-//   return (
-  
-//   );
-// }
-
-// export default Register;
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';

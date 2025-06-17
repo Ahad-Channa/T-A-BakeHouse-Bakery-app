@@ -2,7 +2,7 @@
 
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AddCategory = () => {
@@ -33,23 +33,25 @@ const AddCategory = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-[700px] bg-white shadow-lg rounded-xl p-8">
-        <h2 className="font-bold bg-sky-100 rounded-lg my-3 py-2 px-4">Add new category</h2>
+    <div className="m-10 rounded-lg bg-gray-100 flex items-center justify-center  animate-fadeIn ">
+      <div className="w-[700px]  bg-white shadow-lg rounded-xl p-8 ">
+        <h2 className="font-bold bg-sky-300  rounded-lg my-3 py-4 px-4">
+          Add new category
+        </h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <input
             type="text"
             placeholder="Enter category name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2 mb-4"
+            className="w-full border border-gray-400 rounded-lg px-4 py-4  my-4 focus:outline-none focus:border-blue-500"
             required
           />
           <textarea
             placeholder="Enter description (optional)"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2 mb-4"
+            className="w-full border border-gray-400 rounded-lg px-4 py-4  my-4 focus:outline-none focus:border-blue-500"
           />
           <input
             type="file"

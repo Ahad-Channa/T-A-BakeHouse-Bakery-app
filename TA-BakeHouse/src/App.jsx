@@ -12,6 +12,7 @@ import Cart from "./pages/User/Cart";
 import Register from "./pages/User/Register";
 import ClientProducts from "./pages/User/cliendproduct";
 
+
 // Admin Layout & Pages
 import AdminLayout from "./pages/Admin/AdminLayout";
 import Dashboards from "./pages/Admin/Dashboards";
@@ -25,6 +26,7 @@ import Prev_orders from "./pages/Admin/Prev_orders";
 import OrderDetails from "./pages/Admin/OrderDetails";
 import EditCategory from "./pages/Admin/EditCategory";
 import EditProduct from "./pages/Admin/EditProduct";
+import Welcome from "./pages/User/welcome";
 
 const router = createBrowserRouter([
   // 👤 User Routes
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
   children: [
     { path: "", element: <Login /> },
     { path: "register", element: <Register /> },
-    { path: "home", element: <PrivateRoute requiredRole="user"><Home /></PrivateRoute> },
+    { path: "home", element: <PrivateRoute requiredRole="user"><Welcome /></PrivateRoute> },
     { path: "client-products", element: <PrivateRoute requiredRole="user"><ClientProducts /></PrivateRoute> },
     { path: "cart", element: <PrivateRoute requiredRole="user"><Cart /></PrivateRoute> },
   ],
@@ -66,3 +68,4 @@ function App() {
 }
 
 export default App;
+
