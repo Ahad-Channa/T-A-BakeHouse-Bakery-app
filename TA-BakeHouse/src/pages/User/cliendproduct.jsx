@@ -41,11 +41,18 @@ function ClientProducts() {
       : products.filter((product) => product.category?.name === selectedCategory);
 
   if (loading) {
-    return <div className="text-center py-20 text-xl">Loading products...</div>;
+    return <div className="flex justify-center ">
+          <img
+           // src="/images/ChatGPT Image .png"
+           src="/images/Cake.gif"
+            alt="Delicious baked goods"
+            className="rounded-lg  w-[800px] h-auto " 
+          />
+        </div>;
   }
 
   return (
-    <div className="px-4 py-10 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className=" px-4 py-10 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <h2 className="text-4xl font-extrabold text-center text-amber-700 mb-8">
         Explore Our Products
       </h2>
@@ -74,7 +81,7 @@ function ClientProducts() {
         {filteredProducts.map((product) => (
           <div
             key={product._id}
-            className="border rounded-xl p-4 shadow hover:shadow-lg transition bg-white"
+            className="border rounded-xl p-4 shadow hover:shadow-lg transition bg-white border-2 border-userborder"
           >
             <img
               src={`http://localhost:5000/${product.image.replace(/\\/g, "/")}`}

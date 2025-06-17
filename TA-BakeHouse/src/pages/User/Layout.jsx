@@ -9,8 +9,10 @@ const Layout = () => {
 
   return (
     <>
+     
       {!hideNavbar && <Navbar />}
-      <div className="p-4">
+      <div className="bg-bguser">
+        
         <Outlet />
       </div>
     </>

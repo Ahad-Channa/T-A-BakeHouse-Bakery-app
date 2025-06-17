@@ -74,7 +74,7 @@ const Cart = () => {
 
   return (
 
-    <div className="max-w-3xl w-full mx-auto p-6 m-[150px] bg-new rounded-xl border rounded-xl border-2 border-compobdr animate-fadeIn">
+    <div className="max-w-3xl w-full mx-auto p-6 m-[150px] bg-new rounded-xl  animate-fadeIn">
       
 
       <h2 className="text-2xl font-bold mb-6">🛒 Your Cart</h2>
