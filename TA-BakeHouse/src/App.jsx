@@ -6,7 +6,6 @@ import PrivateRoute from "./routes/PrivateRoute";
 
 // User Layout & Pages
 import Layout from "./pages/User/Layout";
-import Home from "./pages/User/Home";
 import Login from "./pages/User/Login";
 import Cart from "./pages/User/Cart";
 import Register from "./pages/User/Register";

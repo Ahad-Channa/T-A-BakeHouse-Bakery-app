@@ -1,90 +1,320 @@
-const products = [
-  {
-    id: 1,
-    name: "Chocolate Chip",
-    href: "#",
-    imageSrc: "/images/chocolate-chip.png",
-    imageAlt: "image not found",
-    price: "200",
-    descryption: "hehehehehehehe hahahah ",
-  },
-  {
-    id: 2,
-    name: "Cupcake",
-    href: "#",
-    imageSrc: "/images/cupcake.webp",
-    imageAlt: "image not found",
-    price: "350",
-    descryption: "hity kuch likhbo",
-  },
-  {
-    id: 3,
-    name: "Chocolate Cake",
-    href: "#",
-    imageSrc: "/images/Moist-Chocolate-Cake-20.jpg",
-    imageAlt: "image not found",
-    price: "1350",
-    descryption: "hity b kuch likhbo",
-  },
-  {
-    id: 4,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "image not found",
-    price: "2500",
-    descryption: "same same same ",
-  },
-  // Add more as needed...
-];
+// // import React, { useEffect, useState } from "react";
+// // import axios from "axios";
 
-function Clientproducts() {
+// // function ClientProducts() {
+// //   const [products, setProducts] = useState([]);
+// //   const [selectedCategory, setSelectedCategory] = useState("All");
+// //   const [loading, setLoading] = useState(true);
+
+// //   useEffect(() => {
+// //     const fetchProducts = async () => {
+// //       try {
+// //         const res = await axios.get("http://localhost:5000/api/products");
+// //         setProducts(res.data); // No `.products` since your backend sends full array
+// //       } catch (err) {
+// //         console.error("Error fetching products:", err);
+// //         setProducts([]);
+// //       } finally {
+// //         setLoading(false);
+// //       }
+// //     };
+
+// //     fetchProducts();
+// //   }, []);
+
+// //   // Extract unique category names
+// //   const categories = [
+// //     "All",
+// //     ...new Set(
+// //       products
+// //         .map((p) => p.category?.name)
+// //         .filter((name) => typeof name === "string")
+// //     ),
+// //   ];
+
+// //   // Filter by selected category
+// //   const filteredProducts =
+// //     selectedCategory === "All"
+// //       ? products
+// //       : products.filter((product) => product.category?.name === selectedCategory);
+
+// //   if (loading) {
+// //     return <div className="text-center py-20 text-xl">Loading products...</div>;
+// //   }
+
+// //   return (
+// //     <div className="px-4 py-10 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+// //       <h2 className="text-4xl font-extrabold text-center text-amber-700 mb-8">
+// //         Explore Our Products
+// //       </h2>
+
+// //       {/* Category Filter */}
+// //       <div className="flex flex-wrap justify-center gap-4 mb-10">
+// //         {categories.map((cat, idx) => (
+// //           <button
+// //             key={idx}
+// //             onClick={() => setSelectedCategory(cat)}
+// //             className={`px-4 py-2 rounded-full border font-medium transition ${
+// //               selectedCategory === cat
+// //                 ? "bg-amber-600 text-white border-amber-600"
+// //                 : "bg-white text-gray-700 border-gray-300 hover:bg-amber-50"
+// //             }`}
+// //           >
+// //             {cat}
+// //           </button>
+// //         ))}
+// //       </div>
+
+// //       {/* Products Grid */}
+// //       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+// //         {filteredProducts.map((product) => (
+// //           <div
+// //             key={product._id}
+// //             className="border rounded-xl p-4 shadow hover:shadow-lg transition bg-white"
+// //           >
+// //             <img
+// //               src={`http://localhost:5000/${product.image.replace(/\\/g, "/")}`}
+// //               alt={product.name}
+// //               className="aspect-square w-full rounded-md object-cover mb-4"
+// //             />
+// //             <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
+// //             <p className="text-sm text-gray-500 mb-2">
+// //               {product.category?.name || "Uncategorized"}
+// //             </p>
+// //             <p className="text-sm text-gray-600 mb-4">{product.description}</p>
+// //             <div className="flex items-center justify-between">
+// //               <p className="text-lg font-bold text-amber-700">Rs {product.price}</p>
+// //               <button className="px-4 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
+// //                 Add to Cart
+// //               </button>
+// //             </div>
+// //           </div>
+// //         ))}
+// //       </div>
+// //     </div>
+// //   );
+// // }
+
+// // export default ClientProducts;
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+
+// function ClientProducts() {
+//   const [products, setProducts] = useState([]);
+//   const [selectedCategory, setSelectedCategory] = useState("All");
+//   const [loading, setLoading] = useState(true);
+
+//   // Fetch products
+//   useEffect(() => {
+//     const fetchProducts = async () => {
+//       try {
+//         const res = await axios.get("http://localhost:5000/api/products");
+//         setProducts(res.data.products || res.data); // support both API response styles
+//       } catch (err) {
+//         console.error("Error fetching products:", err);
+//         setProducts([]);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchProducts();
+//   }, []);
+
+//   // Extract unique categories
+//   const categories = [
+//     "All",
+//     ...new Set(
+//       products
+//         .map((p) => p.category?.name)
+//         .filter((name) => name !== undefined && name !== null)
+//     ),
+//   ];
+
+//   // Filter products by selected category
+//   const filteredProducts =
+//     selectedCategory === "All"
+//       ? products
+//       : products.filter(
+//           (product) => product.category?.name === selectedCategory
+//         );
+
+//   if (loading) {
+//     return <div className="text-center py-20 text-xl">Loading products...</div>;
+//   }
+
+//   return (
+//     <div className="px-4 py-10 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+//       <h2 className="text-4xl font-extrabold text-center text-amber-700 mb-8">
+//         Explore Our Products
+//       </h2>
+
+//       {/* Horizontally Scrollable Category Filter */}
+//       <div className="overflow-x-auto whitespace-nowrap py-2 mb-10 scrollbar-hide">
+//         <div className="inline-flex space-x-3 px-2">
+//           {categories.map((cat, idx) => (
+//             <button
+//               key={idx}
+//               onClick={() => setSelectedCategory(cat)}
+//               className={`px-4 py-2 rounded-full border font-medium transition shrink-0 ${
+//                 selectedCategory === cat
+//                   ? "bg-amber-600 text-white border-amber-600"
+//                   : "bg-white text-gray-700 border-gray-300 hover:bg-amber-50"
+//               }`}
+//             >
+//               {cat}
+//             </button>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* Product Grid */}
+//       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+//         {filteredProducts.map((product) => (
+//           <div
+//             key={product._id}
+//             className="border rounded-xl p-4 shadow hover:shadow-lg transition bg-white"
+//           >
+//             <img
+//               src={`http://localhost:5000/${product.image.replace(/\\/g, "/")}`}
+//               alt={product.name}
+//               className="aspect-square w-full rounded-md object-cover mb-4"
+//             />
+//             <h3 className="text-lg font-semibold text-gray-800">
+//               {product.name}
+//             </h3>
+//             <p className="text-sm text-gray-500 mb-2">
+//               {product.category?.name || "Uncategorized"}
+//             </p>
+//             <p className="text-sm text-gray-600 mb-4">{product.description}</p>
+//             <div className="flex items-center justify-between">
+//               <p className="text-lg font-bold text-amber-700">
+//                 Rs {product.price}
+//               </p>
+//               <button className="px-4 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
+//                 Add to Cart
+//               </button>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ClientProducts;
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+function ClientProducts() {
+  const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [loading, setLoading] = useState(true);
+
+  // Fetch products
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/products");
+        setProducts(res.data || []);
+      } catch (err) {
+        console.error("Error fetching products:", err);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // Get unique category names
+  const categories = [
+    "All",
+    ...new Set(
+      products
+        .map((p) => p.category?.name)
+        .filter((name) => name !== undefined && name !== null)
+    ),
+  ];
+
+  // Filter by selected category
+  const filteredProducts =
+    selectedCategory === "All"
+      ? products
+      : products.filter((product) => product.category?.name === selectedCategory);
+
+  if (loading) {
+    return <div className="text-center py-20 text-xl">Loading products...</div>;
+  }
+
   return (
-    <div>
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-5xl font-bold mb-4 text-center text-deeppurp underline decoration-wavy underline-offset-[20px] mb-20">
-          Products
-        </h2>
+    <div className="px-4 py-10 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <h2 className="text-4xl font-extrabold text-center text-amber-700 mb-8">
+        Explore Our Products
+      </h2>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8  mt-20">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="group relative border rounded-xl p-4 shadow hover:shadow-lg transition bg-compbg border-2 border-bordercolor"
+      {/* Category filter - horizontal scroll */}
+      <div className="w-full overflow-x-auto mb-8">
+        <div className="flex space-x-3 min-w-max px-2">
+          {categories.map((cat, idx) => (
+            <button
+              key={idx}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-4 py-2 rounded-full border font-medium transition whitespace-nowrap ${
+                selectedCategory === cat
+                  ? "bg-amber-600 text-white border-amber-600"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-amber-50"
+              }`}
             >
-              <img
-                alt={product.imageAlt}
-                src={product.imageSrc}
-                className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75"
-              />
-              <div className="mt-4 flex justify-between items-center">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href={product.href}>
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {product.name}
-                    </a>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    {product.descryption}
-                  </p>
-                </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price}
-                </p>
-              </div>
-
-              {/* Add to Cart Button */}
-              <button className="mt-4 w-full bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded hover:bg-blue-700 transition">
-                Add to Cart
-              </button>
-            </div>
+              {cat}
+            </button>
           ))}
         </div>
+      </div>
+
+      {/* Product grid */}
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {filteredProducts.map((product) => (
+          <div
+            key={product._id}
+            className="border rounded-xl p-4 shadow hover:shadow-lg transition bg-white"
+          >
+            <img
+              src={`http://localhost:5000/${product.image.replace(/\\/g, "/")}`}
+              alt={product.name}
+              className="aspect-square w-full rounded-md object-cover mb-4"
+            />
+            <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
+            <p className="text-sm text-gray-500 mb-1">
+              {product.category?.name || "Uncategorized"}
+            </p>
+            <p className="text-sm mb-2">
+              {product.inStock ? (
+                <span className="text-green-600 font-medium">In Stock</span>
+              ) : (
+                <span className="text-red-600 font-medium">Out of Stock</span>
+              )}
+            </p>
+            <p className="text-sm text-gray-600 mb-4">{product.description}</p>
+            <div className="flex items-center justify-between">
+              <p className="text-lg font-bold text-amber-700">Rs {product.price}</p>
+              <button
+                disabled={!product.inStock}
+                className={`px-4 py-1 text-sm rounded ${
+                  product.inStock
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "bg-gray-300 text-gray-600 cursor-not-allowed"
+                }`}
+              >
+                {product.inStock ? "Add to Cart" : "Out of Stock"}
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-export default Clientproducts;
+export default ClientProducts;
