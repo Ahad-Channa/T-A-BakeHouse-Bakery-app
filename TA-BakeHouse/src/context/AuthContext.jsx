@@ -8,12 +8,23 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // const login = async (credentials) => {
+  //   const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
+  //   localStorage.setItem("token", res.data.token);
+  //   setUser(res.data.user);
+  // };
   const login = async (credentials) => {
-    const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
-    localStorage.setItem("token", res.data.token);
-    setUser(res.data.user);
-  };
+  // Clear old session
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
 
+  const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
+
+  // Save new session
+  localStorage.setItem("token", res.data.token);
+  localStorage.setItem("user", JSON.stringify(res.data.user)); // ✅ Save user too
+  setUser(res.data.user);
+};
   const register = async (data) => {
     const res = await axios.post("http://localhost:5000/api/auth/register", {
       ...data,
@@ -24,9 +35,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
-    setUser(null);
-  };
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  setUser(null);
+};
 
   const fetchProfile = async () => {
     const token = localStorage.getItem("token");
