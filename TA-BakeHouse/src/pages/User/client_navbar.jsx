@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
 
-function Navbar() {
+function Client_Navbar() {
   const { logout } = useAuth();
   const { cartItems } = useCart();
   const navigate = useNavigate();
@@ -22,19 +22,19 @@ function Navbar() {
 
       <div className="flex gap-4 items-center">
         <Link 
-          to="/home" 
+          to="/user" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Home
         </Link>
         <Link 
-          to="/client-products" 
+          to="/user/client-products" 
           className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Products
         </Link>
         <Link 
-          to="/cart" 
+          to="/user/cart" 
           className="relative px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
         >
           Cart
@@ -56,4 +56,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Client_Navbar;

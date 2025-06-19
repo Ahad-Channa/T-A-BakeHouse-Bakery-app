@@ -22,7 +22,11 @@ export default {
         bgpink: '#ff758f',
         bgpinkhover:'#f26a8d',
         borderbrown: '#34a0a4',
-        bgnew: '#e3f2fd'
+        bgnew: '#e3f2fd',
+        bguser: '#ece4db',
+        userborder: '#b6ad90',
+        bgblack: '#a99985',
+        hm: '#805b10'
        // newbg : '#cdeafb'
       },
       keyframes: {

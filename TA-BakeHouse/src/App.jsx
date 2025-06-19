@@ -5,11 +5,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 
 // User Layout & Pages
-import Layout from "./pages/User/Layout";
-import Login from "./pages/User/Login";
+import Layout from "./pages/components/Layout";
+import Login from "./pages/components/Login";
+import LandingPage from "./pages/components/LandingPage";
 import Cart from "./pages/User/Cart";
-import Register from "./pages/User/Register";
-import ClientProducts from "./pages/User/cliendproduct";
+import Register from "./pages/components/Register";
+import ClientProducts from "./pages/User/clientproduct";
 
 
 // Admin Layout & Pages
@@ -26,23 +27,37 @@ import OrderDetails from "./pages/Admin/OrderDetails";
 import EditCategory from "./pages/Admin/EditCategory";
 import EditProduct from "./pages/Admin/EditProduct";
 import Welcome from "./pages/User/welcome";
+import Checkout from "./pages/User/Checkout";
+import  Client_Layout from "./pages/User/clientlayout"
 
 const router = createBrowserRouter([
-  // 👤 User Routes
+  // Landing page
   {
   path: "/",
   element: <Layout />,
   children: [
-    { path: "", element: <Login /> },
-    { path: "register", element: <Register /> },
-    { path: "home", element: <PrivateRoute requiredRole="user"><Welcome /></PrivateRoute> },
-    { path: "client-products", element: <PrivateRoute requiredRole="user"><ClientProducts /></PrivateRoute> },
-    { path: "cart", element: <PrivateRoute requiredRole="user"><Cart /></PrivateRoute> },
+    { path: "", element: <LandingPage /> },
+    { path: "login", element: <Login /> },
+    { path: "register", element: <Register /> },   
   ],
 },
 
 
-  // 🛠️ Admin Routes
+ // User Routes
+  {
+  path: "/user",
+  element: < Client_Layout />,
+  children: [
+    { path: "", element: <PrivateRoute requiredRole="user"><Welcome /></PrivateRoute> },
+    { path: "client-products", element: <PrivateRoute requiredRole="user"><ClientProducts /></PrivateRoute> },
+    { path: "cart", element: <PrivateRoute requiredRole="user"><Cart /></PrivateRoute> },
+    { path: "checkout" , element: <PrivateRoute requiredRole="user">< Checkout/></PrivateRoute> },
+  ],
+},
+
+
+
+  //  Admin Routes
   {
   path: "/admin",
   element: <AdminLayout />,

@@ -1,32 +1,31 @@
 
+
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAuth } from '../../context/AuthContext';
 
-function Register() {
-  const { register } = useAuth();
+function Login() {
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
-      name: '',
       email: '',
       password: '',
     },
     validationSchema: Yup.object({
-      name: Yup.string().required('Name is required'),
       email: Yup.string().email('Invalid email').required('Email is required'),
-      password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+      password: Yup.string().min(6, 'Minimum 6 characters').required('Password is required'),
     }),
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        await register(values);
-        navigate('/');
+        await login(values);
+        navigate("/user"); // redirect on success
       } catch (err) {
         console.error(err);
-        setErrors({ email: 'Registration failed. Try another email.' });
+        setErrors({ email: "Login failed. Please try again." });
       } finally {
         setSubmitting(false);
       }
@@ -34,27 +33,11 @@ function Register() {
   });
 
   return (
-     <div className="flex justify-center items-center h-screen bg-yellow-50">
+    <div className="flex justify-center items-center h-screen bg-yellow-50">
       <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-yellow-700">Register for Bakehouse</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-yellow-700">Login to Bakehouse</h2>
 
         <form onSubmit={formik.handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700 mb-1">Full Name</label>
-            <input
-              type="text"
-              name="name"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
-              placeholder="Enter your full name"
-            />
-            {formik.touched.name && formik.errors.name && (
-              <p className="text-red-500 text-sm">{formik.errors.name}</p>
-            )}
-          </div>
-
           <div>
             <label className="block text-gray-700 mb-1">Email</label>
             <input
@@ -80,7 +63,7 @@ function Register() {
               onBlur={formik.handleBlur}
               value={formik.values.password}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
-              placeholder="Create a password"
+              placeholder="Enter your password"
             />
             {formik.touched.password && formik.errors.password && (
               <p className="text-red-500 text-sm">{formik.errors.password}</p>
@@ -88,16 +71,16 @@ function Register() {
           </div>
 
           <button type="submit" className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-lg transition">
-            Register
+            Login
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-gray-600">
-          Already have an account? <Link to="/" className="text-yellow-600 hover:underline font-medium">Login</Link>
+          Don’t have an account? <Link to="/register" className="text-yellow-600 hover:underline font-medium">Register</Link>
         </p>
       </div>
     </div>
   );
 }
 
-export default Register;
+export default Login;
