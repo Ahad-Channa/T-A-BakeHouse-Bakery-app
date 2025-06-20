@@ -21,7 +21,6 @@ import AdminCategories from "./pages/Admin/AdminCategories";
 import AddCategory from "./pages/Admin/AddCategory";
 import AdminProducts from "./pages/Admin/AdminProducts";
 import Addproducts from "./pages/Admin/AddProduct";
-import Feedbacks from "./pages/Admin/Feedbacks";
 import Prev_orders from "./pages/Admin/Prev_orders";
 import OrderDetails from "./pages/Admin/OrderDetails";
 import EditCategory from "./pages/Admin/EditCategory";
@@ -74,7 +73,6 @@ const router = createBrowserRouter([
     { path: "add-product", element: <PrivateRoute requiredRole="admin"><Addproducts /></PrivateRoute> },
     { path: "incoming-orders", element: <PrivateRoute requiredRole="admin"><Incoming_orders /></PrivateRoute> },
     { path: "previous-orders", element: <PrivateRoute requiredRole="admin"><Prev_orders /></PrivateRoute> },
-    { path: "feedbacks", element: <PrivateRoute requiredRole="admin"><Feedbacks /></PrivateRoute> },
     { path: "order-details/:orderId", element: <PrivateRoute requiredRole="admin"><OrderDetails /></PrivateRoute> },
   ]
 },

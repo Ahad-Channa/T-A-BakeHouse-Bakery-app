@@ -35,11 +35,7 @@ import { Link} from "react-router-dom";
           </button>
         </Link>
 
-        <Link to="feedbacks" className="col-span-2 mx-auto">
-          <button className="bg-lime-300 text-xl font-bold hover:bg-lime-400 py-2 px-4 rounded-lg w-[350px] h-[160px] transition-all duration-300 hover:scale-105">
-            View Feedbacks
-          </button>
-        </Link>
+      
       </div>
     </>
   );
