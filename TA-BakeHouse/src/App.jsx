@@ -29,6 +29,7 @@ import EditProduct from "./pages/Admin/EditProduct";
 import Welcome from "./pages/User/welcome";
 import Checkout from "./pages/User/Checkout";
 import  Client_Layout from "./pages/User/clientlayout"
+import MyOrders from "./pages/User/MyOrders";
 
 const router = createBrowserRouter([
   // Landing page
@@ -52,6 +53,8 @@ const router = createBrowserRouter([
     { path: "client-products", element: <PrivateRoute requiredRole="user"><ClientProducts /></PrivateRoute> },
     { path: "cart", element: <PrivateRoute requiredRole="user"><Cart /></PrivateRoute> },
     { path: "checkout" , element: <PrivateRoute requiredRole="user">< Checkout/></PrivateRoute> },
+        { path: "my-order" , element: <PrivateRoute requiredRole="user">< MyOrders/></PrivateRoute> },
+
   ],
 },
 

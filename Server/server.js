@@ -7,6 +7,9 @@ import connectDB from './config/db.js';
 import authRoutes from "./routes/authRoutes.js";
 import categoryRoutes from './routes/categoryRoutes.js'
 import productRoutes from "./routes/productRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
+
+
 
 const app = express();
 
@@ -21,6 +24,7 @@ app.use('/api/categories', categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use('/uploads/categories', express.static('uploads/categories'));
 app.use('/uploads/products', express.static('uploads/products'));
+app.use("/api/orders", orderRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');

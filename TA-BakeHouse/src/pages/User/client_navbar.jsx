@@ -33,6 +33,12 @@ function Client_Navbar() {
         >
           Products
         </Link>
+         <Link 
+          to="/user/my-order" 
+          className="px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
+        >
+          My Order
+        </Link>
         <Link 
           to="/user/cart" 
           className="relative px-4 py-2 rounded-xl hover:bg-white hover:text-yellow-600 transition duration-300 font-medium"
