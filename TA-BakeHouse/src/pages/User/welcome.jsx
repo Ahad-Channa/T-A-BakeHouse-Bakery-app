@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import cakeimg from "./images/coffeecake.jpg";
@@ -8,7 +9,7 @@ import cakeimg from "./images/coffeecake.jpg";
 const Welcome = () => {
   const { user } = useAuth();
   const [products, setProducts] = useState([]);
-
+   const { addToCart } = useCart();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -140,13 +141,14 @@ const Welcome = () => {
             Rs {product.price}
           </p>
           <button
-            disabled={!product.inStock}
-            className={`px-3 py-1 text-sm rounded ${
-              product.inStock
-                ? "bg-blue-600 text-white hover:bg-blue-700"
-                : "bg-gray-300 text-gray-600 cursor-not-allowed"
-            }`}
-          >
+              onClick={() => addToCart(product)}
+              disabled={!product.inStock}
+              className={`px-4 py-1 text-sm rounded ${
+                product.inStock
+                  ? "bg-blue-600 text-white hover:bg-blue-700"
+                  : "bg-gray-300 text-gray-600 cursor-not-allowed"
+              }`}
+            >
             Add to Cart
           </button>
         </div>

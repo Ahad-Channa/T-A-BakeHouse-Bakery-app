@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -52,81 +53,121 @@ const Checkout = () => {
   });
 
   return (
-    <div className="max-w-3xl w-full mx-auto p-6 mt-[150px] bg-new rounded-xl border-2 border-compobdr animate-fadeIn">
-      <h2 className="text-2xl font-bold mb-6">Checkout</h2>
+    <div className="min-h-screen bg-gray-100 py-10 px-4">
+      <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl border border-gray-200 shadow-md">
+        <h2 className="text-2xl font-bold mb-6">Checkout</h2>
 
-      <form onSubmit={formik.handleSubmit} className="mb-6 space-y-4">
-        <input
-          type="text"
-          name="customerName"
-          placeholder="Full Name"
-          value={formik.values.customerName}
-          onChange={formik.handleChange}
-          className="w-full p-3 border rounded-xl"
-        />
-        <input
-          type="text"
-          name="phone"
-          placeholder="Phone Number"
-          value={formik.values.phone}
-          onChange={formik.handleChange}
-          className="w-full p-3 border rounded-xl"
-        />
-        <textarea
-          name="address"
-          placeholder="Address"
-          value={formik.values.address}
-          onChange={formik.handleChange}
-          className="w-full p-3 border rounded-xl"
-        />
-      </form>
-
-      <h3 className="text-xl font-semibold mb-4">Your Order</h3>
-      <div className="space-y-4 mb-6">
-        {selectedItems.map((item, i) => (
-          <div
-            key={i}
-            className="flex items-center border rounded-xl p-4 bg-gray-50 shadow-sm"
-          >
-            <img
-              src={
-                item.image?.startsWith("http")
-                  ? item.image
-                  : `http://localhost:5000/${item.image?.replace(/\\/g, "/")}`
-              }
-              alt={item.name}
-              className="w-20 h-20 object-cover rounded mr-4"
+        <form onSubmit={formik.handleSubmit} className="mb-6 space-y-4">
+          <div>
+            <input
+              type="text"
+              name="customerName"
+              placeholder="Full Name"
+              value={formik.values.customerName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className={`w-full p-3 border rounded-xl ${
+                formik.touched.customerName && formik.errors.customerName
+                  ? "border-red-500"
+                  : "border-gray-300"
+              }`}
             />
-            <div>
-              <h4 className="font-semibold">{item.name}</h4>
-              <p>Quantity: {item.quantity}</p>
-              <p>Price: Rs. {item.price}</p>
-              <p className="font-bold">
-                Total: Rs. {item.quantity * item.price}
+            {formik.touched.customerName && formik.errors.customerName && (
+              <p className="text-red-500 text-sm mt-1">
+                {formik.errors.customerName}
               </p>
-            </div>
+            )}
           </div>
-        ))}
-      </div>
 
-      <div className="text-right text-lg font-bold mb-6">
-        Final Total: Rs. {total}
-      </div>
+          <div>
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number"
+              value={formik.values.phone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className={`w-full p-3 border rounded-xl ${
+                formik.touched.phone && formik.errors.phone
+                  ? "border-red-500"
+                  : "border-gray-300"
+              }`}
+            />
+            {formik.touched.phone && formik.errors.phone && (
+              <p className="text-red-500 text-sm mt-1">{formik.errors.phone}</p>
+            )}
+          </div>
 
-      <div className="flex justify-end gap-4">
-        <button
-          onClick={formik.handleSubmit}
-          className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
-        >
-          Confirm Order
-        </button>
+          <div>
+            <textarea
+              name="address"
+              placeholder="Address"
+              value={formik.values.address}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className={`w-full p-3 border rounded-xl ${
+                formik.touched.address && formik.errors.address
+                  ? "border-red-500"
+                  : "border-gray-300"
+              }`}
+            />
+            {formik.touched.address && formik.errors.address && (
+              <p className="text-red-500 text-sm mt-1">
+                {formik.errors.address}
+              </p>
+            )}
+          </div>
+        </form>
 
-        <button
-          onClick={() => nav("/user/cart")}
-          className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600"
-        >
-          Cancel
-        </button>
+        <h3 className="text-xl font-semibold mb-4">Your Order</h3>
+        <div className="space-y-4 mb-6">
+          {selectedItems.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center border rounded-xl p-4 bg-gray-50 shadow-sm"
+            >
+              <img
+                src={
+                  item.image?.startsWith("http")
+                    ? item.image
+                    : `http://localhost:5000/${item.image?.replace(/\\/g, "/")}`
+                }
+                alt={item.name}
+                className="w-20 h-20 object-cover rounded mr-4"
+              />
+              <div>
+                <h4 className="font-semibold">{item.name}</h4>
+                <p>Quantity: {item.quantity}</p>
+                <p>Price: Rs. {item.price}</p>
+                <p className="font-bold">
+                  Total: Rs. {item.quantity * item.price}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-right text-lg font-bold mb-6">
+          Final Total: Rs. {total}
+        </div>
+
+        <div className="flex justify-end gap-4">
+          <button
+            type="submit"
+            onClick={formik.handleSubmit}
+            className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
+          >
+            Confirm Order
+          </button>
+
+          <button
+            type="button"
+            onClick={() => nav("/user/cart")}
+            className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
 
       {showPopup && (
