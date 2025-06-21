@@ -1,7 +1,6 @@
 // import React from "react";
 // import { Link } from "react-router-dom";
 
-
 // const Home = () => {
 //   return (
 //     <div className="min-h-screen bg-gray-100 py-10 px-4">
@@ -26,13 +25,13 @@
 //               Join now
 //             </button>
 //           </Link> */}
-  
+
 //         </div>
 //                       <Link to="/login">
 //   <button>
 //     Join now
 //   </button>
-// </Link>   
+// </Link>
 //         <div className="md:w-1/2 flex justify-center">
 //           <img
 //             src="/images/chocolate.gif"
@@ -51,7 +50,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
+    <div className="min-h-screen py-10 px-4 ">
       <h1 className="text-5xl font-bold mb-8 text-center text-brown mt-10 animate-glow-float custom-glow">
         Welcome to T&A Bakehouse
       </h1>
@@ -70,15 +69,14 @@ const Home = () => {
           </p>
 
           {/* Join Now Button */}
-         <Link to="/login">
- <button
-  className="z-50 relative bg-yellow-500 text-white px-4 py-2 rounded-xl shadow-md hover:bg-yellow-600 transition"
-  style={{ pointerEvents: "auto" }}
->
-  Join now
-</button>
-
-</Link>
+          <Link to="/login">
+            <button
+              className="z-50 relative bg-yellow-500 text-white px-4 py-2 rounded-xl shadow-md hover:bg-yellow-600 transition"
+              style={{ pointerEvents: "auto" }}
+            >
+              Join now
+            </button>
+          </Link>
         </div>
 
         {/* Right section: Image */}
