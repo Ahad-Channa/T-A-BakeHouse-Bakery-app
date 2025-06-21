@@ -63,23 +63,43 @@ function ClientProducts() {
           Explore Our Products
         </h2>
 
-        {/* Category filter */}
-        <div className="w-full overflow-x-auto mb-8">
-          <div className="flex space-x-3 min-w-max px-2">
-            {categories.map((cat, idx) => (
-              <button
-                key={idx}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full border font-medium transition whitespace-nowrap ${
-                  selectedCategory === cat
-                    ? "bg-amber-600 text-white border-amber-600"
-                    : "bg-white text-gray-700 border-gray-300 hover:bg-amber-50"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+       {/* Category filter */}
+        <div className="w-full mb-8 flex items-center gap-4">
+          <button
+            onClick={() =>
+              (document.getElementById("cat-scroll").scrollLeft -= 200)
+            }
+            className="px-4 py-2 bg-white border rounded shadow text-amber-800 font-semibold hover:bg-amber-50"
+          >
+            ← Prev
+          </button>
+
+          <div id="cat-scroll" className="w-full overflow-x-auto no-scrollbar">
+            <div className="flex space-x-3 min-w-max px-2">
+              {categories.map((cat, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-full border font-medium transition whitespace-nowrap ${
+                    selectedCategory === cat
+                      ? "bg-amber-600 text-white border-amber-600"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-amber-50"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
+
+          <button
+            onClick={() =>
+              (document.getElementById("cat-scroll").scrollLeft += 200)
+            }
+            className="px-4 py-2 bg-white border rounded shadow text-amber-800 font-semibold hover:bg-amber-50"
+          >
+            Next →
+          </button>
         </div>
 
         {/* Product Grid */}
