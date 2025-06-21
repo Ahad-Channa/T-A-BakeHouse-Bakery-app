@@ -1,4 +1,4 @@
-// 📁 src/App.jsx
+//  src/App.jsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Auth Context Guard

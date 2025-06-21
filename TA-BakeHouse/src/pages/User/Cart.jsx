@@ -39,8 +39,8 @@ const Cart = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
-      <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl border border-gray-200 shadow-md">
+    <div className="w-full min-h-[1000px] px-4 py-10 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="max-w-3xl w-full mx-auto p-6 m-[150px] bg-gray-50 rounded-xl border border-2 border-userborder  animate-fadeIn">
         <h2 className="text-2xl font-bold mb-6">🛒 Your Cart</h2>
 
         <div className="grid gap-4">

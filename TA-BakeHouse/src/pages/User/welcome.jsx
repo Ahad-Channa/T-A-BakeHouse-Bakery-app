@@ -9,7 +9,7 @@ import cakeimg from "./images/coffeecake.jpg";
 const Welcome = () => {
   const { user } = useAuth();
   const [products, setProducts] = useState([]);
-   const { addToCart } = useCart();
+  const { addToCart } = useCart();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -35,7 +35,7 @@ const Welcome = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="mb-20 flex flex-col md:flex-row items-center justify-around px-6 md:px-12 py-40 relative z-10 ">
+      <div className="mt-10 mb-20 flex flex-col md:flex-row items-center justify-around px-6 md:px-12 py-40 relative z-10  ">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -74,7 +74,7 @@ const Welcome = () => {
       </div>
 
       {/* Featured Cake */}
-      <div className="  rounded-xl bg-black  relative text-yellow-300 px-6 md:px-20 py-16 flex flex-col md:flex-row items-center my-12">
+      <div className="  rounded-xl bg-black  relative text-yellow-300 px-6 md:px-20 py-16 flex flex-col md:flex-row items-center my-12 ">
         <div className="md:w-1/2 space-y-4">
           <h2 className="text-2xl md:text-4xl font-bold">COFFEE FUDGE CAKE</h2>
           <p className="text-sm md:text-base text-yellow-100">
@@ -98,79 +98,88 @@ const Welcome = () => {
       {/* Product Showcase */}
 
       <div>
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-    className="px-6 md:px-10 py-16"
-  >
-    <h2 className="text-4xl font-extrabold text-center text-amber-700 mb-8 underline decoration-solid underline-offset-[20px]">
-      Our Featured Products
-    </h2>
-  </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="px-6 md:px-10 py-16"
+        >
+          <h2 className="text-4xl font-extrabold text-center text-amber-700 mb-8 underline decoration-solid underline-offset-[20px]">
+            Our Featured Products
+          </h2>
+        </motion.div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 md:px-16 py-12">
-    {products.map((product, index) => (
-      <motion.div
-        key={product._id}
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.03 }}
-        transition={{ duration: 0.4, delay: index * 0.1 }}
-        viewport={{ once: true }}
-        className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition border-2 border-userborder"
-      >
-        <img
-          src={`http://localhost:5000/${product.image.replace(/\\/g, "/")}`}
-          alt={product.name}
-          className="w-full h-80 object-cover rounded-md mb-4"
-        />
-        <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-        <p className="text-sm text-gray-500 mb-1">{product.category?.name}</p>
-        <p className="text-sm mb-2">
-          {product.inStock ? (
-            <span className="text-green-600 font-medium">In Stock</span>
-          ) : (
-            <span className="text-red-600 font-medium">Out of Stock</span>
-          )}
-        </p>
-        <p className="text-sm text-gray-600 mb-4">{product.description}</p>
-        <div className="flex items-center justify-between">
-          <p className="text-lg font-bold text-amber-700">
-            Rs {product.price}
-          </p>
-          <button
-              onClick={() => addToCart(product)}
-              disabled={!product.inStock}
-              className={`px-4 py-1 text-sm rounded ${
-                product.inStock
-                  ? "bg-blue-600 text-white hover:bg-blue-700"
-                  : "bg-gray-300 text-gray-600 cursor-not-allowed"
-              }`}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 md:px-16 py-12">
+          {products.map((product, index) => (
+            <motion.div
+              key={product._id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition border-2 border-userborder"
             >
-            Add to Cart
-          </button>
+              <img
+                src={`http://localhost:5000/${product.image.replace(
+                  /\\/g,
+                  "/"
+                )}`}
+                alt={product.name}
+                className="w-full h-80 object-cover rounded-md mb-4"
+              />
+              <h3 className="text-lg font-semibold text-gray-800">
+                {product.name}
+              </h3>
+              <p className="text-sm text-gray-500 mb-1">
+                {product.category?.name}
+              </p>
+              <p className="text-sm mb-2">
+                {product.inStock ? (
+                  <span className="text-green-600 font-medium">In Stock</span>
+                ) : (
+                  <span className="text-red-600 font-medium">Out of Stock</span>
+                )}
+              </p>
+              <p className="text-sm text-gray-600 mb-4">
+                {product.description}
+              </p>
+              <div className="flex items-center justify-between">
+                <p className="text-lg font-bold text-amber-700">
+                  Rs {product.price}
+                </p>
+                <button
+                  onClick={() => addToCart(product)}
+                  disabled={!product.inStock}
+                  className={`px-4 py-1 text-sm rounded ${
+                    product.inStock
+                      ? "bg-blue-600 text-white hover:bg-blue-700"
+                      : "bg-gray-300 text-gray-600 cursor-not-allowed"
+                  }`}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </motion.div>
-    ))}
-  </div>
 
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    viewport={{ once: true }}
-    className="text-center mt-8 mb-12"
-  >
-    <Link
-      to="/user/client-products"
-      className="w-[300px] inline-block px-6 py-2 border border-amber-800 text-amber-800 rounded-full hover:bg-amber-600 hover:text-white transition"
-    >
-      View More Products →
-    </Link>
-  </motion.div>
-</div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mt-8 mb-12"
+        >
+          <Link
+            to="/user/client-products"
+            className="w-[300px] inline-block px-6 py-2 border border-amber-800 text-amber-800 rounded-full hover:bg-amber-600 hover:text-white transition"
+          >
+            View More Products →
+          </Link>
+        </motion.div>
+      </div>
       {/*"Gift section"*/}
       <div className=" py-16 px-6 md:px-12 text-center ">
         <motion.h2
@@ -206,8 +215,7 @@ const Welcome = () => {
               title: "Royal Celebration Cake",
               description:
                 "Celebrate the sweet moments with our luxurious celebration cakes made for grand occasions.",
-              image:
-                "/images/graduate-cake.jpg",
+              image: "/images/graduate-cake.jpg",
             },
           ].map((gift, idx) => (
             <motion.div
