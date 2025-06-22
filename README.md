@@ -88,10 +88,9 @@ Frontend runs on http://localhost:5173
 Backend runs on http://localhost:5000
 
 
-##📸 Screenshots
-###You can include images of your homepage, admin dashboard, product listing, and checkout here.
+---
 
 
-##👨‍💻 Developed By
--Ahad Channa 
+## 👨‍💻 Developed By
+- Ahad Channa 
 - Tasmia-jokhio (https://github.com/Tasmia-jokhio)
