@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
 
-// @desc    Register new user
+ 
 export const registerUser = async (req, res) => {
   const { name, email, password, role } = req.body;
 
@@ -25,7 +25,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// @desc    Login user
+
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -44,7 +44,7 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// @desc    Get user profile
+
 export const getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");

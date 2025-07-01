@@ -1,4 +1,3 @@
-// src/context/CartContext.jsx
 import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
@@ -6,7 +5,6 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  // 🔄 Load cart from localStorage
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
@@ -14,14 +12,12 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // 💾 Save cart to localStorage on change
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // ✅ Add to cart
   const addToCart = (product) => {
-    const id = product.id || product._id; // Normalize ID
+    const id = product.id || product._id; 
 
     const exists = cartItems.find((item) => item.id === id);
 
@@ -38,14 +34,13 @@ export const CartProvider = ({ children }) => {
         ...cartItems,
         {
           ...product,
-          id, // Use normalized ID
+          id, 
           quantity: 1,
         },
       ]);
     }
   };
 
-  // 🔄 Update quantity
   const updateQuantity = (id, quantity) => {
     setCartItems((prev) =>
       prev.map((item) =>
@@ -56,12 +51,10 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // ❌ Remove item
   const removeFromCart = (id) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
-  // 🚮 Clear cart
   const clearCart = () => {
     setCartItems([]);
   };

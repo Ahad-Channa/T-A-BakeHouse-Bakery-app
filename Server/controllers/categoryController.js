@@ -1,11 +1,11 @@
 import Category from '../models/categoryModel.js';
 
-// Create Category
+
 export const createCategory = async (req, res) => {
   try {
     const { name, description } = req.body;
 
-    // Check if category already exists
+    
     const existing = await Category.findOne({ name });
     if (existing) {
       return res.status(400).json({ message: 'Category already exists' });
@@ -22,7 +22,7 @@ export const createCategory = async (req, res) => {
   }
 };
 
-// Get All Categories
+
 export const getAllCategories = async (req, res) => {
   try {
     const categories = await Category.find({});
@@ -32,7 +32,7 @@ export const getAllCategories = async (req, res) => {
   }
 };
 
-// Get Single Category
+
 export const getCategoryById = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
@@ -44,7 +44,7 @@ export const getCategoryById = async (req, res) => {
   }
 };
 
-// Update Category
+
 export const updateCategory = async (req, res) => {
   try {
     const { name, description } = req.body;
@@ -69,7 +69,7 @@ export const updateCategory = async (req, res) => {
   }
 };
 
-// ✅ Delete Category
+
 export const deleteCategory = async (req, res) => {
   try {
     const deleted = await Category.findByIdAndDelete(req.params.id);

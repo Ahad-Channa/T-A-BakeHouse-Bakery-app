@@ -3,7 +3,6 @@ import Order from "../models/OrderModel.js";
 
 const router = express.Router();
 
-// ✅ Move this to the top to avoid conflict with '/:id'
 router.get("/previous", async (req, res) => {
   try {
     const orders = await Order.find({
@@ -19,7 +18,6 @@ router.get("/previous", async (req, res) => {
   }
 });
 
-// Keep your other routes below (unchanged)
 router.post("/", async (req, res) => {
   try {
     const { userId, customerName, phone, address, items, totalAmount } = req.body;
@@ -64,7 +62,6 @@ router.get("/incoming", async (req, res) => {
   }
 });
 
-// ✅ This stays at the bottom
 router.get("/:id", async (req, res) => {
   try {
     const order = await Order.findById(req.params.id)

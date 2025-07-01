@@ -1,6 +1,6 @@
 import Product from "../models/productModel.js";
 
-// Create product with image upload
+
 export const createProduct = async (req, res) => {
   try {
     const { name, description, price, category, inStock } = req.body;
@@ -22,7 +22,7 @@ export const createProduct = async (req, res) => {
   }
 };
 
-// Get all products
+
 export const getAllProducts = async (req, res) => {
   try {
     const products = await Product.find().populate('category', 'name');
@@ -32,7 +32,7 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
-// Get single product
+
 export const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id).populate('category', 'name');
@@ -45,7 +45,7 @@ export const getProductById = async (req, res) => {
   }
 };
 
-// Update product with optional new image
+
 export const updateProduct = async (req, res) => {
   try {
     const { name, description, price, category, inStock } = req.body;
@@ -77,7 +77,7 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-// Delete product
+
 export const deleteProduct = async (req, res) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.id);

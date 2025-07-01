@@ -1,4 +1,4 @@
-// // models/OrderModel.js
+
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
@@ -29,13 +29,13 @@ const orderSchema = new mongoose.Schema(
         name: String,
         price: Number,
         quantity: Number,
-        image: String, // ✅ Add this line
+        image: String, 
       },
     ],
     totalAmount: Number,
     status: {
     type: String,
-    enum: ["pending", "confirmed", "rejected", "delivered"], // ✅ Add "delivered"
+    enum: ["pending", "confirmed", "rejected", "delivered"], 
     default: "pending",
   },
   },

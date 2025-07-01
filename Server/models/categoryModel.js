@@ -1,4 +1,4 @@
-// 📁 models/categoryModel.js
+
 import mongoose from 'mongoose';
 
 const categorySchema = new mongoose.Schema(
@@ -13,7 +13,7 @@ const categorySchema = new mongoose.Schema(
       type: String,
     },
     image: {
-      type: String, // filename (e.g., "bread.png")
+      type: String, 
     },
   },
   { timestamps: true }
