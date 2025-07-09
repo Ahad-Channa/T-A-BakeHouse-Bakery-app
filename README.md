@@ -93,4 +93,4 @@ Backend runs on http://localhost:5000
 
 ## 👨‍💻 Developed By
 - Ahad Channa 
-- Tasmia-jokhio (https://github.com/Tasmia-jokhio)
+- Tasmia-jokhio (https://github.com/Jokhio-Tasmia)
